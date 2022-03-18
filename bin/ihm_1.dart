@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'ihm_1_1.dart';
 import 'ihm_p.dart';
 
 class IHM_1 {
@@ -15,6 +16,7 @@ class IHM_1 {
     String choix = stdin.readLineSync().toString();
     while (!valide) {
       if (choix == "1") {
+        Ihm_1_1.afficherSuiteEditeur();
         valide = true;
       } else if (choix == "2") {
         valide = true;
