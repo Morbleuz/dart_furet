@@ -3,6 +3,7 @@ import 'dart:io';
 import 'ihm_1.dart';
 
 class Ihm_1_1 {
+  // Affiche la suite du menu quand on choisi la table Editeur
   static void afficherSuiteEditeur() {
     print("+------------------------------------------------------------------------+\n" +
         "| Sélectionner une Options                                                  |\n" +
@@ -28,4 +29,10 @@ class Ihm_1_1 {
       }
     }
   }
+
+  // Affiche la suite du menu quand on choisi la table Auteur
+  static void afficherSuiteAuteur() {}
+
+  // Affiche la suite du menu quand on choisi la table Produit
+  static void afficherSuiteProduit() {}
 }

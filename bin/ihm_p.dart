@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'bdd.dart';
 import 'ihm_1.dart';
+import 'ihm_2.dart';
 
 class IHM_P {
   //Affichage du menu
@@ -20,6 +21,7 @@ class IHM_P {
         IHM_1.afficheMenu1();
         valide = true;
       } else if (choix == "2") {
+        Ihm_2.afficherChoisirTable();
         valide = true;
       } else if (choix == "3") {
         valide = true;

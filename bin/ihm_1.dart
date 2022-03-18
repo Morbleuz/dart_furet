@@ -4,6 +4,7 @@ import 'ihm_1_1.dart';
 import 'ihm_p.dart';
 
 class IHM_1 {
+  // Affiche les tables pour l'options 1 du ihm_P
   static void afficheMenu1() {
     print("+----------------------------------------+\n" +
         "| Sélectionner une table                 |\n" +
