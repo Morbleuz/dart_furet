@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'bdd.dart';
+import 'ihm_1.dart';
 
 class IHM_P {
   //Affichage du menu
@@ -16,6 +17,7 @@ class IHM_P {
     bool valide = false;
     while (!valide) {
       if (choix == "1") {
+        IHM_1.afficheMenu1();
         valide = true;
       } else if (choix == "2") {
         valide = true;
@@ -31,6 +33,4 @@ class IHM_P {
       }
     }
   }
-
-  static void selectMenu() {}
 }
