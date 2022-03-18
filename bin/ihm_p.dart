@@ -26,7 +26,7 @@ class IHM_P {
       } else if (choix == "Q") {
         valide = true;
       } else {
-        print("/!\\ vous devez saisir une valeur valide !");
+        print("/!\\ vous devez saisir une valeur valide ! /!\\ ");
         choix = stdin.readLineSync().toString();
       }
     }
