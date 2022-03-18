@@ -10,4 +10,8 @@ class BDD {
   );
 
   BDD();
+
+  ConnectionSettings getSettings() {
+    return this._settings;
+  }
 }

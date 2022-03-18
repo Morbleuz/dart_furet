@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'bdd.dart';
+import 'gestinEditeur.dart';
 import 'ihm_1.dart';
 
 class Ihm_1_1 {
@@ -14,7 +16,9 @@ class Ihm_1_1 {
     bool valide = false;
     String choix = stdin.readLineSync().toString();
     while (!valide) {
+      GestinEditeur gestion = GestinEditeur();
       if (choix == "1") {
+        gestion.selectAll();
         valide = true;
       } else if (choix == "2") {
         valide = true;

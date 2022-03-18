@@ -1,5 +1,5 @@
 class Editeur {
-  int _idEditeur;
+  String _idEditeur;
   String _adresse;
   String _nomEditeur;
 
