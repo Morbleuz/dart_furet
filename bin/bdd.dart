@@ -1,7 +1,7 @@
 import 'package:mysql1/mysql1.dart';
 
 class BDD {
-  final ConnectionSettings _settings = ConnectionSettings(
+  static ConnectionSettings _settings = ConnectionSettings(
     host: "localhost",
     port: 3306,
     user: "admin",
@@ -11,7 +11,7 @@ class BDD {
 
   BDD();
 
-  ConnectionSettings getSettings() {
-    return this._settings;
+  static ConnectionSettings getSettings() {
+    return _settings;
   }
 }
