@@ -18,7 +18,6 @@ class Ihm_1_1 {
     bool valide = false;
     String choix = stdin.readLineSync().toString();
     while (!valide) {
-      GestinEditeur gestion = GestinEditeur();
       if (choix == "1") {
         GestinEditeur.selectAll();
         valide = true;

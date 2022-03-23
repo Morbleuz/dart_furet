@@ -20,8 +20,10 @@ class IHM_1 {
         Ihm_1_1.afficherSuiteEditeur();
         valide = true;
       } else if (choix == "2") {
+        Ihm_1_1.afficherSuiteAuteur();
         valide = true;
       } else if (choix == "3") {
+        Ihm_1_1.afficherSuiteProduit();
         valide = true;
       } else if (choix == "R") {
         valide = true;

@@ -12,7 +12,7 @@ class GestinEditeur {
     List<Editeur> editeurs = new List.empty(growable: true);
     try {
       MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
-      Results reponse = await conn.query("SELECT * from Editeur");
+      Results reponse = await conn.query("SELECT * from Editeur;");
       for (var row in reponse) {
         editeurs.add(
             Editeur(row[3].toString(), row[0].toString(), row[1].toString()));

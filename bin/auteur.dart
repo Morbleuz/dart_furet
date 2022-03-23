@@ -12,6 +12,7 @@ class Auteur {
         ", " +
         this._nomAuteur.toString() +
         ", " +
-        this._prenomAuteur.toString();
+        this._prenomAuteur.toString() +
+        "\n";
   }
 }
