@@ -12,4 +12,16 @@ class BDD {
   static ConnectionSettings getSettings() {
     return _settings;
   }
+
+  static Future<bool> testConnection() async {
+    bool valide = false;
+    try {
+      MySqlConnection con = await MySqlConnection.connect(_settings);
+      con.close();
+      valide = true;
+    } catch (e) {
+      print(e.toString());
+    }
+    return valide;
+  }
 }

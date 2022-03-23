@@ -5,7 +5,7 @@ import 'ihm_p.dart';
 
 class IHM_1 {
   // Affiche les tables pour l'options 1 du ihm_P
-  static void afficheMenu1() {
+  static void afficheMenu() {
     print("+----------------------------------------+\n" +
         "| Sélectionner une table                 |\n" +
         "| 1 - Editeur                            |\n" +
@@ -27,7 +27,6 @@ class IHM_1 {
         valide = true;
       } else if (choix == "R") {
         valide = true;
-        IHM_P.afficheMenu();
       } else {
         print("/!\\ vous devez saisir une valeur valide ! /!\\ ");
         choix = stdin.readLineSync().toString();

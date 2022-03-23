@@ -22,7 +22,6 @@ class Ihm_2 {
         valide = true;
       } else if (choix == "R") {
         valide = true;
-        IHM_P.afficheMenu();
       } else {
         print("/!\\ vous devez saisir une valeur valide ! /!\\ ");
         choix = stdin.readLineSync().toString();
