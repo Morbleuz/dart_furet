@@ -7,7 +7,7 @@ class GestinEditeur {
   BDD _bdd = BDD();
 
   GestinEditeur();
-
+  //Affiche tout la table Editeurs
   static Future<List<Editeur>> selectAll() async {
     List<Editeur> editeurs = new List.empty(growable: true);
     try {
@@ -24,4 +24,12 @@ class GestinEditeur {
 
     return editeurs;
   }
+
+  // Renvoie tout les noms des Editeurs
+  static Future<List<Editeur>> selectNom() async {
+    List<Editeur> editeurs = new List.empty(growable: true);
+    return editeurs;
+  }
+
+  // Affiche tout les Informations Sur l'Editeurs
 }
