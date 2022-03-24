@@ -11,11 +11,17 @@ echo "|[3] Quitter le programme    |"
 echo "------------------------------"
 
 read reponse
+
+#Installation de mariadb 
+apt install mariadb-server
+
+
 valide=false;
+
 while [ "$valide" = false ];do
 	if [ "$reponse" == 1 ];then 
 		valide=true
-		echo "Indiquez le chemin ou ce trouve la base de donée"
+		echo "Indiquez le chemin ou ce trouve la base de donnée"
 		read chemin
 		echo "Indiquez le nom du fichier SQL"
 		read bdd

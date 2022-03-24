@@ -21,6 +21,7 @@ class Ihm_1_1 {
       //Affichage tout les éditeurs
       if (choix == "1") {
         print("Liste de tout les éditeurs :");
+        stdout.write("-> ");
         for (Editeur edit in await GestinEditeur.selectAll()) {
           stdout.write("-> ");
           edit.afficheInfo();
@@ -36,6 +37,7 @@ class Ihm_1_1 {
             int choice = int.parse(stdin.readLineSync().toString());
             ok = true;
             Editeur edit = await GestinEditeur.selectByID(choice);
+            stdout.write("Résultat pour l'ID souhaiter -> ");
             edit.afficheInfo();
           } catch (e) {
             print("saisir un entier.");
