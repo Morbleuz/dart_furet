@@ -21,9 +21,9 @@ valide=false;
 while [ "$valide" = false ];do
 	if [ "$reponse" == 1 ];then 
 		valide=true
-		echo "Indiquez le chemin ou ce trouve la base de donnée"
+		echo "Indiquez le chemin ou ce trouve la base de donnée (/home/eleve/..)"
 		read chemin
-		echo "Indiquez le nom du fichier SQL"
+		echo "Indiquez le nom du fichier SQL(nomduficher.sql)"
 		read bdd
 		cd $chemin
 		mysql -e "Create database if not exists furet;"

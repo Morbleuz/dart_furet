@@ -1,9 +1,9 @@
 import 'dart:io';
 import 'ihm_p.dart';
 
-class Ihm_2 {
+class IHM_2 {
   // Affiche les tables pour l'options 2 du ihm_P
-  static void afficherChoisirTable() {
+  static Future<void> afficherMenu() async {
     print("+----------------------------------------+\n" +
         "| Sélectionner une table                 |\n" +
         "| 1 - Editeur                            |\n" +

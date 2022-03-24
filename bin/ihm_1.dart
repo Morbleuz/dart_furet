@@ -5,7 +5,7 @@ import 'ihm_p.dart';
 
 class IHM_1 {
   // Affiche les tables pour l'options 1 du ihm_P
-  static void afficheMenu() {
+  static Future<void> afficheMenu() async {
     bool valide = false;
 
     while (!valide) {
@@ -18,11 +18,11 @@ class IHM_1 {
           "+----------------------------------------+");
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
-        Ihm_1_1.afficherSuiteEditeur();
+        await IHM_1_1.afficherSuiteEditeur();
       } else if (choix == "2") {
-        Ihm_1_1.afficherSuiteAuteur();
+        IHM_1_1.afficherSuiteAuteur();
       } else if (choix == "3") {
-        Ihm_1_1.afficherSuiteProduit();
+        IHM_1_1.afficherSuiteProduit();
       } else if (choix == "R") {
         valide = true;
       } else {

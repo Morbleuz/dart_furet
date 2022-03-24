@@ -9,7 +9,28 @@ class Editeur {
     this._adresse = "";
     this._nomEditeur = "";
   }
-  void afficheInfo() {
-    print(this._idEditeur + ", " + this._adresse + ", " + this._nomEditeur);
+
+  //Permet de savoir si l'éditeur est vide
+  bool estVide() {
+    bool vide = false;
+    if (this._idEditeur == "" &&
+        this._adresse == "" &&
+        this._nomEditeur == "") {
+      vide = true;
+    }
+    return vide;
+  }
+
+  //Getter
+  String getId() {
+    return this._idEditeur;
+  }
+
+  String getAdresse() {
+    return this._adresse;
+  }
+
+  String getNom() {
+    return this._nomEditeur;
   }
 }

@@ -4,31 +4,34 @@ import 'bdd.dart';
 import 'editeur.dart';
 import 'gestinEditeur.dart';
 import 'ihm_1.dart';
+import 'ihm_etditeur.dart';
 
-class Ihm_1_1 {
+class IHM_1_1 {
   // Affiche la suite du menu quand on choisi la table Editeur
-  static void afficherSuiteEditeur() async {
+  static Future<void> afficherSuiteEditeur() async {
     bool valide = false;
     while (!valide) {
       print("+------------------------------------------------------------------------+\n" +
           "| Sélectionner une Options                                                |\n" +
           "| 1 - Afficher tout les éditeurs                                          |\n" +
           "| 2 - Afficher un éditeur selon un ID                                     |\n" +
-          "| 3 - Afficher le nom des Editeurs                                        |\n" +
+          "| 3 - Afficher le nom de tout les Editeurs                                |\n" +
+          "| 4 - Afficher les adresses de tout les Editeurs                          |\n" +
           "| R - Retour                                                              |\n" +
           "+-------------------------------------------------------------------------+");
       String choix = stdin.readLineSync().toString();
       //Affichage tout les éditeurs
       if (choix == "1") {
-        print("Liste de tout les éditeurs :");
-        stdout.write("-> ");
-        for (Editeur edit in await GestinEditeur.selectAll()) {
-          stdout.write("-> ");
-          edit.afficheInfo();
-        }
+        print("\nListe de tout les éditeurs :");
 
-        valide = true;
-      } //Affiche un éditeur selon un id
+        List<Editeur> editeurs = await GestinEditeur.selectAll();
+        for (Editeur edit in editeurs) {
+          stdout.write("-> ");
+          IHM_EDITEUR.afficheInfo(edit);
+        }
+        print("\n");
+      }
+      //Affiche un éditeur selon un id
       else if (choix == "2") {
         bool ok = false;
         print("\nSaisir un id.");
@@ -37,18 +40,46 @@ class Ihm_1_1 {
             int choice = int.parse(stdin.readLineSync().toString());
             ok = true;
             Editeur edit = await GestinEditeur.selectByID(choice);
-            stdout.write("Résultat pour l'ID souhaiter -> ");
-            edit.afficheInfo();
+            if (edit.estVide()) {
+              print("L'éditeur n'existe pas");
+            } else {
+              stdout.write("\nRésultat pour l'ID souhaiter -> ");
+              IHM_EDITEUR.afficheInfo(edit);
+            }
           } catch (e) {
             print("saisir un entier.");
           }
         }
+        print("\n");
+      }
+      //Affiche le nom de tous les éditeurs
+      else if (choix == "3") {
+        print("\nListe de tout les noms des éditeurs :");
+
+        List<Editeur> editeurs = await GestinEditeur.selectAll();
+        for (Editeur edit in editeurs) {
+          stdout.write("-> ");
+          IHM_EDITEUR.afficheNom(edit);
+        }
+        print("\n");
+      }
+      //Affichage de l'adresse de tout les Editeurs
+      else if (choix == "4") {
+        print("\nListe de tout les éditeurs :");
+
+        List<Editeur> editeurs = await GestinEditeur.selectAll();
+        for (Editeur edit in editeurs) {
+          stdout.write("-> ");
+          IHM_EDITEUR.afficheAdresse(edit);
+        }
+        print("\n");
+      }
+      //Fin du l'affichage du menu, bool valide = vrai
+      else if (choix == "R") {
         valide = true;
-      } else if (choix == "3") {
-        valide = true;
-      } else if (choix == "R") {
-        valide = true;
-      } else {
+      }
+      //Aucun des choix n'est possible donc on recommence la boucle while avec la saisie
+      else {
         print("/!\\ vous devez saisir une valeur valide ! /!\\ ");
         choix = stdin.readLineSync().toString();
       }
@@ -56,7 +87,7 @@ class Ihm_1_1 {
   }
 
   // Affiche la suite du menu quand on choisi la table Auteur
-  static void afficherSuiteAuteur() {
+  static Future<void> afficherSuiteAuteur() async {
     bool valide = false;
 
     while (!valide) {
@@ -84,7 +115,7 @@ class Ihm_1_1 {
   }
 
   // Affiche la suite du menu quand on choisi la table Produit
-  static void afficherSuiteProduit() {
+  static Future<void> afficherSuiteProduit() async {
     bool valide = false;
 
     while (!valide) {

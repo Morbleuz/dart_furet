@@ -9,22 +9,23 @@ class IHM_P {
     print("+----------------------------------------+\n" +
         "| 1 - Consulter une table                |\n" +
         "| 2 - Modifier le contenu d'une table    |\n" +
-        "| 3 - Inséer une donée                   |\n" +
+        "| 3 - Insérer une donée                  |\n" +
         "| 4 - Supprimer une ou plusieurs données |\n" +
         "| 5 - Tester la connexion à la BDD       |\n" +
         "| Q - Quitter le programme               |\n" +
         "+----------------------------------------+");
   }
 
-  static void afficheMenu() async {
+  //Affichage du menu principale
+  static Future<void> afficheMenu() async {
     bool valide = false;
     while (!valide) {
       vueDuMenu();
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
-        IHM_1.afficheMenu();
+        await IHM_1.afficheMenu();
       } else if (choix == "2") {
-        Ihm_2.afficherChoisirTable();
+        await IHM_2.afficherMenu();
       } else if (choix == "3") {
       } else if (choix == "4") {
       } else if (choix == "5") {
