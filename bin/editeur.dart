@@ -4,11 +4,7 @@ class Editeur {
   String _nomEditeur = "";
 
   Editeur(this._idEditeur, this._adresse, this._nomEditeur);
-  Editeur.vide() {
-    this._idEditeur = "";
-    this._adresse = "";
-    this._nomEditeur = "";
-  }
+  Editeur.vide();
 
   //Permet de savoir si l'éditeur est vide
   bool estVide() {
