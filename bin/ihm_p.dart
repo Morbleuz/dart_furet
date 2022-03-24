@@ -22,17 +22,12 @@ class IHM_P {
       vueDuMenu();
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
-        valide = true;
         IHM_1.afficheMenu();
       } else if (choix == "2") {
-        valide = true;
         Ihm_2.afficherChoisirTable();
       } else if (choix == "3") {
-        valide = true;
       } else if (choix == "4") {
-        valide = true;
       } else if (choix == "5") {
-        valide = true;
         if (!await BDD.testConnection()) {
           print("Connexion impossible");
         } else {
