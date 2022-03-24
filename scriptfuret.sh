@@ -26,6 +26,7 @@ while [ "$valide" = false ];do
 		echo "Indiquez le nom du fichier SQL(nomduficher.sql)"
 		read bdd
 		cd $chemin
+		mysql -e "GRANT ALL PRIVILEGES ON *.* to 'admin'@localhost identified by 'admin';"
 		mysql -e "Create database if not exists furet;"
 		mysql -h localhost -u root -btsinfo furet < $bdd
 	elif [ "$reponse" == 2 ]
