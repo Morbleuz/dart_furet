@@ -2,9 +2,13 @@ import 'dart:io';
 
 import 'bdd.dart';
 import 'editeur.dart';
+import 'gestinAuteur.dart';
 import 'gestinEditeur.dart';
+import 'gestinProduit.dart';
 import 'ihm_1.dart';
-import 'ihm_etditeur.dart';
+import 'ihm_editeur.dart';
+import 'ihm_produit.dart';
+import 'produit.dart';
 
 class IHM_1_1 {
   // Affiche la suite du menu quand on choisi la table Editeur
@@ -100,11 +104,8 @@ class IHM_1_1 {
           "+-------------------------------------------------------------------------+");
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
-        valide = true;
       } else if (choix == "2") {
-        valide = true;
       } else if (choix == "3") {
-        valide = true;
       } else if (choix == "R") {
         valide = true;
       } else {
@@ -128,11 +129,16 @@ class IHM_1_1 {
           "+-------------------------------------------------------------------------+");
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
-        valide = true;
+        print("\nListe de tout les Produits :");
+
+        List<Produit> produits = await GestinProduit.selectAll();
+        for (Produit edit in produits) {
+          stdout.write("-> ");
+          IHM_PRODUIT.afficheInfo(edit);
+        }
+        print("\n");
       } else if (choix == "2") {
-        valide = true;
       } else if (choix == "3") {
-        valide = true;
       } else if (choix == "R") {
         valide = true;
       } else {

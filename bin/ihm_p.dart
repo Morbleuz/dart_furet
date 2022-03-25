@@ -9,7 +9,7 @@ class IHM_P {
     print("+----------------------------------------+\n" +
         "| 1 - Consulter une table                |\n" +
         "| 2 - Modifier le contenu d'une table    |\n" +
-        "| 3 - Insérer une donée                  |\n" +
+        "| 3 - Insérer une donnée                  |\n" +
         "| 4 - Supprimer une ou plusieurs données |\n" +
         "| 5 - Tester la connexion à la BDD       |\n" +
         "| Q - Quitter le programme               |\n" +

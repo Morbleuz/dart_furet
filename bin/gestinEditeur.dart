@@ -6,8 +6,6 @@ import 'editeur.dart';
 class GestinEditeur {
   BDD _bdd = BDD();
 
-  GestinEditeur();
-
   //Affiche tout la table Editeurs
   static Future<List<Editeur>> selectAll() async {
     List<Editeur> editeurs = new List.empty(growable: true);
@@ -45,14 +43,13 @@ class GestinEditeur {
 
     return nouv;
   }
-  // Affiche tout les noms des Editeurs
-
-  // Affiche tout les Informations Sur l'Editeurs
 
   // Modifie Le contenue dans la table Editeurs
-
+  static Future<void> modifyByID(int id) async {}
   // Ajouter le contenue dans la table Editeurs
-
+  static Future<void> addNewEditeur() async {}
   // Supprimer le contenue dans la table Editeurs
-
+  static Future<void> dellEditeurByID() async {}
+  // Supprimer tous les éditeurs
+  static Future<void> dellAllEditeur() async {}
 }
