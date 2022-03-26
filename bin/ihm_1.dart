@@ -1,6 +1,6 @@
 import 'dart:io';
 
-import 'ihm_1_1.dart';
+import 'ihm_consulter.dart';
 import 'ihm_p.dart';
 
 class IHM_1 {
@@ -18,11 +18,11 @@ class IHM_1 {
           "+----------------------------------------+");
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
-        await IHM_1_1.afficherSuiteEditeur();
+        await IHM_CONSULTER.afficherSuiteEditeur();
       } else if (choix == "2") {
-        IHM_1_1.afficherSuiteAuteur();
+        await IHM_CONSULTER.afficherSuiteAuteur();
       } else if (choix == "3") {
-        IHM_1_1.afficherSuiteProduit();
+        await IHM_CONSULTER.afficherSuiteProduit();
       } else if (choix == "R") {
         valide = true;
       } else {

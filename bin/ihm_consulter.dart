@@ -10,7 +10,7 @@ import 'ihm_editeur.dart';
 import 'ihm_produit.dart';
 import 'produit.dart';
 
-class IHM_1_1 {
+class IHM_CONSULTER {
   // Affiche la suite du menu quand on choisi la table Editeur
   static Future<void> afficherSuiteEditeur() async {
     bool valide = false;

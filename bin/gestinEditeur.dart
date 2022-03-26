@@ -45,7 +45,64 @@ class GestinEditeur {
   }
 
   // Modifie Le contenue dans la table Editeurs
-  static Future<void> modifyByID(int id) async {}
+  static Future<Editeur> updateNomByID(String nom, int id) async {
+    Editeur nouv = Editeur.vide();
+    try {
+      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+
+      Results reponse = await conn.query("UPDATE Editeur SET nomEditeur='" +
+          nom +
+          "'WHERE idEditeur='" +
+          id.toString() +
+          "';");
+      nouv = await selectByID(id);
+      conn.close();
+    } catch (e) {
+      e.toString();
+    }
+    return nouv;
+  }
+
+  // Modifie l'adresse selon un id
+  static Future<Editeur> updateAdresseByID(String adresse, int id) async {
+    Editeur nouv = Editeur.vide();
+    try {
+      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+
+      Results reponse = await conn.query("UPDATE Editeur SET adresse='" +
+          adresse +
+          "'WHERE idEditeur='" +
+          id.toString() +
+          "';");
+      nouv = await selectByID(id);
+      conn.close();
+    } catch (e) {
+      e.toString();
+    }
+    return nouv;
+  }
+
+  static Future<Editeur> updateNomEtAdresseByID(
+      String nom, String adresse, int id) async {
+    Editeur nouv = Editeur.vide();
+    try {
+      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+
+      Results reponse = await conn.query("UPDATE Editeur SET adresse='" +
+          adresse +
+          "', nomEditeur='" +
+          nom +
+          "'WHERE idEditeur='" +
+          id.toString() +
+          "';");
+      nouv = await selectByID(id);
+      conn.close();
+    } catch (e) {
+      e.toString();
+    }
+    return nouv;
+  }
+
   // Ajouter le contenue dans la table Editeurs
   static Future<void> addNewEditeur() async {}
   // Supprimer le contenue dans la table Editeurs
