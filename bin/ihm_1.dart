@@ -5,7 +5,7 @@ import 'ihm_p.dart';
 
 class IHM_1 {
   // Affiche les tables pour l'options 1 du ihm_P
-  static Future<void> afficheMenu() async {
+  static Future<void> afficherMenu() async {
     bool valide = false;
 
     while (!valide) {

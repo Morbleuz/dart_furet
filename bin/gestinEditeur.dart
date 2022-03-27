@@ -104,9 +104,28 @@ class GestinEditeur {
   }
 
   // Ajouter le contenue dans la table Editeurs
-  static Future<void> addNewEditeur() async {}
+  static Future<void> addNewEditeur(String nom, String adresse) async {}
   // Supprimer le contenue dans la table Editeurs
-  static Future<void> dellEditeurByID() async {}
+  static Future<void> dellEditeurByID(int id) async {
+    try {
+      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+
+      Results reponse = await conn.query(
+          "DELETE FROM Editeur where idEditeur='" + id.toString() + "';");
+      conn.close();
+    } catch (e) {
+      e.toString();
+    }
+  }
+
   // Supprimer tous les éditeurs
-  static Future<void> dellAllEditeur() async {}
+  static Future<void> dellAllEditeur() async {
+    try {
+      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+      Results reponse = await conn.query("DELETE FROM Editeur;");
+      conn.close();
+    } catch (e) {
+      e.toString();
+    }
+  }
 }

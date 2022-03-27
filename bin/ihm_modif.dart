@@ -98,7 +98,6 @@ class IHM_MODIF {
       //Aucun des choix n'est possible donc on recommence la boucle while avec la saisie
       else {
         print("/!\\ vous devez saisir une valeur valide ! /!\\ ");
-        choix = stdin.readLineSync().toString();
       }
     }
   }
