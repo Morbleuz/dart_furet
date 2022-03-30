@@ -12,8 +12,6 @@ echo "------------------------------"
 
 read reponse
 
-#Installation de mariadb 
-apt install mariadb-server
 
 
 valide=false;
@@ -21,6 +19,8 @@ valide=false;
 while [ "$valide" = false ];do
 	if [ "$reponse" == 1 ];then 
 		valide=true
+		#Installation de mariadb 
+		apt install mariadb-server
 		echo "Indiquez le chemin ou ce trouve la base de donnée (/home/eleve/..)"
 		read chemin
 		echo "Indiquez le nom du fichier SQL(nomduficher.sql)"

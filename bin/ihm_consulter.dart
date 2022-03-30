@@ -21,18 +21,23 @@ class IHM_CONSULTER {
           "| 2 - Afficher un éditeur selon un ID                                     |\n" +
           "| 3 - Afficher le nom de tout les Editeurs                                |\n" +
           "| 4 - Afficher les adresses de tout les Editeurs                          |\n" +
+          "| 5 - Afficher les éditeurs selon un nom                                  |\n" +
           "| R - Retour                                                              |\n" +
           "+-------------------------------------------------------------------------+");
       String choix = stdin.readLineSync().toString();
       //Affichage tout les éditeurs
       if (choix == "1") {
-        print("\nListe de tout les éditeurs :");
-
         List<Editeur> editeurs = await GestinEditeur.selectAll();
-        for (Editeur edit in editeurs) {
-          stdout.write("-> ");
-          IHM_EDITEUR.afficheInfo(edit);
+        if (!editeurs.isEmpty) {
+          print("\nListe de tout les éditeurs :");
+          for (Editeur edit in editeurs) {
+            stdout.write("-> ");
+            IHM_EDITEUR.afficheInfo(edit);
+          }
+        } else {
+          print("La table Editeur est vide.");
         }
+
         print("\n");
       }
       //Affiche un éditeur selon un id
@@ -69,13 +74,28 @@ class IHM_CONSULTER {
       }
       //Affichage de l'adresse de tout les Editeurs
       else if (choix == "4") {
-        print("\nListe de tout les éditeurs :");
+        print("\nListe de tout les éditeurs selon une adresse:");
 
         List<Editeur> editeurs = await GestinEditeur.selectAll();
         for (Editeur edit in editeurs) {
           stdout.write("-> ");
           IHM_EDITEUR.afficheAdresse(edit);
         }
+        print("\n");
+      } else if (choix == "5") {
+        print("Entrez un nom");
+        String nom = stdin.readLineSync().toString();
+        List<Editeur> editeurs = await GestinEditeur.selectByNom(nom);
+        if (!editeurs.isEmpty) {
+          print("\nListe de tout les éditeurs :");
+          for (Editeur edit in editeurs) {
+            stdout.write("-> ");
+            IHM_EDITEUR.afficheInfo(edit);
+          }
+        } else {
+          print("\nAucun résultat pour le nom '" + nom + "'");
+        }
+
         print("\n");
       }
       //Fin du l'affichage du menu, bool valide = vrai
@@ -129,14 +149,17 @@ class IHM_CONSULTER {
           "+-------------------------------------------------------------------------+");
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
-        print("\nListe de tout les Produits :");
-
         List<Produit> produits = await GestinProduit.selectAll();
-        for (Produit edit in produits) {
-          stdout.write("-> ");
-          IHM_PRODUIT.afficheInfo(edit);
+        if (!produits.isEmpty) {
+          print("\nListe de tout les Produits :");
+          for (Produit edit in produits) {
+            stdout.write("-> ");
+            IHM_PRODUIT.afficheInfo(edit);
+          }
+          print("\n");
+        } else {
+          print("La table Produit est vide.");
         }
-        print("\n");
       } else if (choix == "2") {
       } else if (choix == "3") {
       } else if (choix == "R") {

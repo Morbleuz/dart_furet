@@ -3,6 +3,7 @@ import 'editeur.dart';
 
 class Produit {
   String _idProduit = "";
+  String _nomProduit = "";
   String _auteur = "";
   String _editeur = "";
   String _type = "";
@@ -11,7 +12,7 @@ class Produit {
   String _AnneParu = "";
 
   Produit(this._idProduit, this._auteur, this._editeur, this._type,
-      this._AnneParu, this._prix, this._quantite);
+      this._AnneParu, this._prix, this._quantite, this._nomProduit);
   Produit.vide();
 
   bool estVide() {
@@ -22,7 +23,8 @@ class Produit {
         this._prix == "" &&
         this._idProduit == "" &&
         this._quantite == "" &&
-        this._type == "") {
+        this._type == "" &&
+        this._nomProduit == "") {
       vide = true;
     }
     return vide;
@@ -54,5 +56,9 @@ class Produit {
 
   String getAnneParu() {
     return this._AnneParu;
+  }
+
+  String getNomProduit() {
+    return this._nomProduit;
   }
 }

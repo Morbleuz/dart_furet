@@ -1,8 +1,9 @@
 import 'dart:io';
+import 'ihm_ajouter.dart';
 import 'ihm_modif.dart';
 import 'ihm_p.dart';
 
-class IHM_2 {
+class IHM_3 {
   // Affiche les tables pour l'options 2 du ihm_P
   static Future<void> afficherMenu() async {
     bool valide = false;
@@ -18,7 +19,7 @@ class IHM_2 {
 
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
-        await IHM_MODIF.afficheModifEditeur();
+        await IHM_AJOUTER.afficherSuiteEditeur();
       } else if (choix == "2") {
       } else if (choix == "3") {
       } else if (choix == "R") {

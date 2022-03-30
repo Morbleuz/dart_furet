@@ -24,9 +24,9 @@ class IHM_SUPPRIMER {
             ok = true;
             Editeur edit = await GestinEditeur.selectByID(id);
             if (!edit.estVide()) {
+              await GestinEditeur.dellEditeurByID(id);
               print(
                   "Suppression de l'utilisateur portant l'id " + id.toString());
-              GestinEditeur.dellEditeurByID(id);
             } else {
               print(
                   "L'utilisateur que vous avez souhaiter supprimer n'exsite pas.");
@@ -37,7 +37,7 @@ class IHM_SUPPRIMER {
         }
       } else if (choix == "2") {
         print(
-            "/!\\ Vous êtes sur le point de supprimer toutes les données, êtes vous sur ? (y/n) /!\\");
+            "/!\\ Vous êtes sur le point de supprimer toutes les données de Editeur mais égalemment de Produit, êtes vous sur ? (y/n) /!\\");
         String sup = stdin.readLineSync().toString();
         if (sup == "y") {
           await GestinEditeur.dellAllEditeur();

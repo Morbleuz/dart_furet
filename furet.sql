@@ -52,7 +52,7 @@ CREATE TABLE `Editeur` (
   `adresse` varchar(255) NOT NULL,
   `nomEditeur` varchar(40) NOT NULL,
   PRIMARY KEY (`idEditeur`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -61,7 +61,7 @@ CREATE TABLE `Editeur` (
 
 LOCK TABLES `Editeur` WRITE;
 /*!40000 ALTER TABLE `Editeur` DISABLE KEYS */;
-INSERT INTO `Editeur` VALUES (1,'rue emile zola','Jojo'),(2,'arras','test'),(3,'cave','Simon'),(4,'37 rue de la joie','Dupont'),(5,'Astrub','Kolyos'),(6,'Sylvarden','Paxge'),(7,'Hurlevent','Willfried');
+INSERT INTO `Editeur` VALUES (8,'zdaz','jojo'),(9,'delarue','victor'),(10,'delaville','holiv'),(11,'delacroix','joris'),(12,'R','R'),(13,'zdaz','jojo');
 /*!40000 ALTER TABLE `Editeur` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,15 +77,16 @@ CREATE TABLE `Produit` (
   `type` varchar(40) NOT NULL,
   `prix` float NOT NULL,
   `quantite` int(4) NOT NULL,
-  `AnneParu` date NOT NULL,
-  `auteur` int(11) NOT NULL,
+  `AnnePAru` year(4) NOT NULL,
   `editeur` int(11) NOT NULL,
+  `auteur` int(11) NOT NULL,
+  `nomProduit` varchar(60) NOT NULL,
   PRIMARY KEY (`idProduit`),
-  KEY `FK_Auteur` (`auteur`),
   KEY `editeur` (`editeur`),
-  CONSTRAINT `FK_Auteur` FOREIGN KEY (`auteur`) REFERENCES `Auteur` (`idAuteur`),
-  CONSTRAINT `Produit_ibfk_1` FOREIGN KEY (`editeur`) REFERENCES `Editeur` (`idEditeur`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+  KEY `auteur` (`auteur`),
+  CONSTRAINT `auteur` FOREIGN KEY (`auteur`) REFERENCES `Auteur` (`idAuteur`),
+  CONSTRAINT `editeur` FOREIGN KEY (`editeur`) REFERENCES `Editeur` (`idEditeur`)
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +95,6 @@ CREATE TABLE `Produit` (
 
 LOCK TABLES `Produit` WRITE;
 /*!40000 ALTER TABLE `Produit` DISABLE KEYS */;
-INSERT INTO `Produit` VALUES (3,'livre',13,3,'2020-10-20',1,1),(4,'dvd',25.5,30,'1998-05-30',4,3),(5,'manga',5,90,'2003-10-22',3,2);
 /*!40000 ALTER TABLE `Produit` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -107,4 +107,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-24 13:55:57
+-- Dump completed on 2022-03-30 15:02:04

@@ -20,7 +20,8 @@ class GestinProduit {
             row[3].toString(),
             row[4].toString(),
             row[5].toString(),
-            row[6].toString()));
+            row[6].toString(),
+            row[7].toString()));
       }
       conn.close();
     } catch (e) {
@@ -30,8 +31,14 @@ class GestinProduit {
     return produits;
   }
 
+  //Affichage par ID
+  static Future<Produit> selectByID() async {
+    Produit produit = Produit.vide();
+    return produit;
+  }
+
   //Ajoute un nouveau Produit
-  static Future<List<Produit>> DelProduit(int idProduit) async {
+  static Future<List<Produit>> DellProduitByID(int idProduit) async {
     List<Produit> produits = new List.empty(growable: true);
     try {
       MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());

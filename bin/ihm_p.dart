@@ -2,15 +2,20 @@ import 'dart:io';
 import 'bdd.dart';
 import 'ihm_1.dart';
 import 'ihm_2.dart';
+import 'ihm_3.dart';
 import 'ihm_4.dart';
 
 class IHM_P {
+  //Affichage du titre
+  static void afficheTitre() {}
+  //Affichage de l'écran de fin
+  static void afficheFin() {}
   //Affichage du menu
   static void vueDuMenu() {
     print("+----------------------------------------+\n" +
         "| 1 - Consulter une table                |\n" +
         "| 2 - Modifier le contenu d'une table    |\n" +
-        "| 3 - Insérer une donnée                  |\n" +
+        "| 3 - Insérer une donnée                 |\n" +
         "| 4 - Supprimer une ou plusieurs données |\n" +
         "| 5 - Tester la connexion à la BDD       |\n" +
         "| Q - Quitter le programme               |\n" +
@@ -28,6 +33,7 @@ class IHM_P {
       } else if (choix == "2") {
         await IHM_2.afficherMenu();
       } else if (choix == "3") {
+        await IHM_3.afficherMenu();
       } else if (choix == "4") {
         await IHM_4.afficherMenu();
       } else if (choix == "5") {
