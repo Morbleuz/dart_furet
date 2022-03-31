@@ -1,11 +1,13 @@
 import 'dart:io';
 
+import 'auteur.dart';
 import 'bdd.dart';
 import 'editeur.dart';
 import 'gestinAuteur.dart';
 import 'gestinEditeur.dart';
 import 'gestinProduit.dart';
 import 'ihm_1.dart';
+import 'ihm_auteur.dart';
 import 'ihm_editeur.dart';
 import 'ihm_produit.dart';
 import 'produit.dart';
@@ -125,7 +127,17 @@ class IHM_CONSULTER {
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
       } else if (choix == "2") {
+        List<Auteur> newAuteur = await GestinAuteur.selectAll();
+        for (Auteur auteur in newAuteur) {
+          stdout.write("-> ");
+          IHM_AUTEUR.afficheInfoAuteur(auteur);
+        }
       } else if (choix == "3") {
+        List<Auteur> newAuteur = await GestinAuteur.selectAll();
+        for (Auteur auteur in newAuteur) {
+          stdout.write("-> ");
+          IHM_AUTEUR.afficheNom(auteur);
+        }
       } else if (choix == "R") {
         valide = true;
       } else {
