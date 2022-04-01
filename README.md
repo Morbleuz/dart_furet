@@ -37,11 +37,9 @@
     <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://github.com/Morbleuz/dart_furet/issues">Report de bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/Morbleuz/dart_furet/issues">Posez des questions</a>
   </p>
 </div>
 
@@ -52,9 +50,9 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">A propos du projet</a>
+      <a href="#le-projet">Le projet</a>
       <ul>
-        <li><a href="#built-with">Projet en équipe(Jonathan et Axel)</a></li>
+        <li><a href="#les-languages-utilisés">Les languages utilisés</a></li>
       </ul>
     </li>
     <li>
@@ -76,7 +74,7 @@
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+### Le Projet
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
@@ -91,19 +89,19 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 Use the `BLANK_README.md` to get started.
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
 
 
-### Built With
+### Les languages utilisés
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Nous avons utulisés les languages suivant pour que le projet soit mené à bien :
 
 * [Dart](https://dart.dev/)
 * [Bash](https://doc.ubuntu-fr.org/bash)
 * [SQL](https://sql.sh/plan)
 
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
 
 
