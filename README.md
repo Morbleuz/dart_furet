@@ -32,9 +32,9 @@
   <h3 align="center">Projet Furet du Nord</h3>
 
   <p align="center">
-    An awesome README template to jumpstart your projects!
+    Fait par des étudiants en BTS SIO option SLAM de 1ere année
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/othneildrew/Best-README-Template"><strong>Explorer la documentation -></strong></a>
     <br />
     <br />
     <a href="https://github.com/Morbleuz/dart_furet/issues">Report de bug</a>
@@ -47,7 +47,7 @@
 
 <!-- TABLE OF CONTENTS -->
 <details>
-  <summary>Table of Contents</summary>
+  <summary>Table des contenus</summary>
   <ol>
     <li>
       <a href="#le-projet">Le projet</a>
@@ -56,18 +56,12 @@
       </ul>
     </li>
     <li>
-      <a href="#getting-started">Commençons</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
+      <a href="#getting-started"></a>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#usage">Utilisation</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
@@ -80,14 +74,13 @@
 
 Bienvenue sur nôtre projet aboutie dans le cadre scolaire. Ce projet simule la gestion d'une base de donnée pour le Furet du Nord, il a donc nécessite la création d'une base de donnée, la maitrise d'une language dart et de la programmation orientée objet mais égalemment la gestion d'un projet.
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+Le projet contient les fonctionnalités suivantes :
+* Consulter le contenu de chaque table, ainsi que des requêtes précises
+* Modifier le contenu de chaque table selon certains critère
+* Insérer des données dans chaque table
+* Supprimer des données dans chaque table
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
-
-Use the `BLANK_README.md` to get started.
+Nous avons rajouter un script permettant l'importation et l'exportation d'une base de donnée.
 
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
