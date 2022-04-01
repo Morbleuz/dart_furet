@@ -9,13 +9,8 @@ echo "|[1] Importer base de donnée |"
 echo "|[2] Exporter base de donnée |"
 echo "|[3] Quitter le programme    |"
 echo "------------------------------"
-
 read reponse
-
-
-
 valide=false;
-
 while [ "$valide" = false ];do
 	if [ "$reponse" == 1 ];then 
 		valide=true

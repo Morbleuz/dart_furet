@@ -5,9 +5,9 @@ class BDD {
   static final ConnectionSettings _settings = ConnectionSettings(
     host: "localhost",
     port: 3306,
-    user: "admin",
+    user: "furet",
     db: "furet",
-    password: "admin",
+    password: "btsinfo",
   );
 
   //Getter des settings
