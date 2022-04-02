@@ -91,6 +91,8 @@ Pour s'organiser nous avons choisis le logiciel Notion.
 Il nous a permis de s'organiser en se répartion les tâches, voir leurs états et savoir ou nous en étions
 Vous pouvez retrouver nôtre notion ici : https://salty-peripheral-b45.notion.site/d4315c2d750248569048b9ae80dba48e?v=aecc58c0dccc46afbde2c338e2f9f842
 
+
+<p align="right">(<a href="#top">Revenir en haut</a>)</p>
 <!-- GETTING STARTED -->
 ## Getting Started
 
