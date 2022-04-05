@@ -11,8 +11,8 @@ class Produit {
   String _quantite = "";
   String _AnneParu = "";
 
-  Produit(this._idProduit, this._auteur, this._editeur, this._type,
-      this._AnneParu, this._prix, this._quantite, this._nomProduit);
+  Produit(this._idProduit, this._type, this._prix, this._quantite,
+      this._AnneParu, this._editeur, this._auteur, this._nomProduit);
   Produit.vide();
 
   bool estVide() {

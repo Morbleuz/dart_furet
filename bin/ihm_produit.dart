@@ -17,21 +17,27 @@ class IHM_PRODUIT {
         produit.getEditeur());
   }
 
-  void afficheType(Produit produit) {
+  static void afficheType(Produit produit) {
     print(produit.getType());
   }
 
-  void affichePrix(Produit produit) {
+  static void affichePrix(Produit produit) {
     print(produit.getPrix());
   }
 
-  void afficheQuantite(Produit produit) {
+  static void afficheQuantite(Produit produit) {
     print(produit.getQuantite());
   }
 
-  void afficheAnneParu(Produit produit) {
+  static void afficheAnneParu(Produit produit) {
     print(produit.getAnneParu());
   }
 
-  void afficheAuteur(Produit produit){}
+  static void afficheAuteur(Produit produit) {
+    print(produit.getAuteur());
+  }
+
+  static void afficheNom(Produit produit) {
+    print(produit.getNomProduit());
+  }
 }

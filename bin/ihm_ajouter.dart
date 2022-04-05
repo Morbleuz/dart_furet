@@ -4,6 +4,8 @@ import 'auteur.dart';
 import 'editeur.dart';
 import 'gestinAuteur.dart';
 import 'gestinEditeur.dart';
+import 'gestinProduit.dart';
+import 'ihm_auteur.dart';
 import 'ihm_editeur.dart';
 
 class IHM_AJOUTER {
@@ -37,34 +39,74 @@ class IHM_AJOUTER {
       String nomProduit = stdin.readLineSync().toString();
       print("Entrez le type.");
       String type = stdin.readLineSync().toString();
-      print("Entrez le prix");
-      double prix = double.parse(stdin.readLineSync().toString());
-      print("Entrez la quantité");
-      int quantite = int.parse(stdin.readLineSync().toString());
-      print("Entrez l'année de parution");
-      int AnneParu = int.parse(stdin.readLineSync().toString());
-      print("Entrez l'id de l'editeur.");
-      bool edi = false;
+      try {
+        print("Entrez le prix");
+        double prix = double.parse(stdin.readLineSync().toString());
+        try {
+          print("Entrez la quantité");
+          int quantite = int.parse(stdin.readLineSync().toString());
+          bool anneeValide = false;
+          while (!anneeValide) {
+            try {
+              print("Entrez l'année de parution");
+              int anneePAru = int.parse(stdin.readLineSync().toString());
+              if (anneePAru < 9999 && anneePAru > 0) {
+                anneeValide = true;
+                bool editvalide = false;
+                while (!editvalide) {
+                  try {
+                    print("Saisir l'id de l'éditeur");
+                    int editeur = int.parse(stdin.readLineSync().toString());
+                    Editeur edit = await GestinEditeur.selectByID(editeur);
+                    if (!edit.estVide()) {
+                      editvalide = true;
+                      bool auteurValide = false;
+                      while (!auteurValide) {
+                        try {
+                          print("Saisir l'id de l'auteur");
+                          int auteur =
+                              int.parse(stdin.readLineSync().toString());
+                          Auteur auteu = await GestinAuteur.selectByID(auteur);
 
-      while (!edi) {
-        int editeur = int.parse(stdin.readLineSync().toString());
-        Editeur edit = await GestinEditeur.selectByID(editeur);
-        if (!edit.estVide()) {
-          edi = true;
-          print("Entrez l'id de l'auteur.");
-          bool au = false;
-          while (!au) {
-            int auteur = int.parse(stdin.readLineSync().toString());
-            /*Auteur aut = await GestinAuteur.selectByID(auteur);
-            if (!aut.estvide()) {
-              au = true;
-            } else {
-              print("L'auteur choisit n'existe pas, veuillez choisir un auteur existant.");
-            }*/
+                          if (!auteu.estVide()) {
+                            auteurValide = true;
+                            valide = true;
+                            try {
+                              await GestinProduit.addNewProduit(
+                                  type.toString(),
+                                  prix.toString(),
+                                  quantite.toString(),
+                                  anneePAru.toString(),
+                                  editeur.toString(),
+                                  auteur.toString(),
+                                  nomProduit.toString());
+                            } catch (e) {
+                              print(e.toString());
+                            }
+                          }
+                        } catch (e) {
+                          print("Saisir une valeur valide");
+                        }
+                      }
+                    } else {
+                      print("L'éditeur n'existe pas, essayez avec un autre");
+                    }
+                  } catch (e) {
+                    print("Saisir une valeur valide");
+                  }
+                }
+              } else {
+                print("Saisir une année valide");
+              }
+            } catch (e) {
+              print("Saisir une année valide");
+            }
           }
-        } else {
-          print("L'éditeur souhaitez n'existe pas");
+        } catch (e) {
+          print("Saisir une valeur valide");
         }
+      } catch (e) {
+        print("Saisir une valeur valide");
       }
     }
   }

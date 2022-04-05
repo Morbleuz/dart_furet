@@ -155,7 +155,7 @@ class IHM_CONSULTER {
       print("+-------------------------------------------------------------------------+\n" +
           "| Sélectionner une Options                                                   |\n" +
           "| 1 - Afficher tout les Produits                                             |\n" +
-          "| 2 - Afficher tout les informations sur Produits                            |\n" +
+          "| 2 - Afficher tout les informations sur Produits avec un ID                 |\n" +
           "| 3 - Afficher le nom des Produits                                           |\n" +
           "| R - Retour                                                                 |\n" +
           "+-------------------------------------------------------------------------+");
@@ -173,7 +173,36 @@ class IHM_CONSULTER {
           print("La table Produit est vide.");
         }
       } else if (choix == "2") {
+        bool ok = false;
+        print("\nSaisir un id.");
+        while (!ok) {
+          try {
+            int choice = int.parse(stdin.readLineSync().toString());
+            ok = true;
+            Produit produit = await GestinProduit.selectByID(choice);
+            if (produit.estVide()) {
+              print("Le produit n'existe pas");
+            } else {
+              stdout.write("\nRésultat pour l'ID souhaiter -> ");
+              IHM_PRODUIT.afficheInfo(produit);
+            }
+          } catch (e) {
+            print("saisir un entier.");
+          }
+        }
+        print("\n");
       } else if (choix == "3") {
+        List<Produit> produits = await GestinProduit.selectAll();
+        if (!produits.isEmpty) {
+          print("\nListe de tout les noms des Produits :");
+          for (Produit edit in produits) {
+            stdout.write("-> ");
+            IHM_PRODUIT.afficheNom(edit);
+          }
+          print("\n");
+        } else {
+          print("La table Produit est vide.");
+        }
       } else if (choix == "R") {
         valide = true;
       } else {

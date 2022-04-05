@@ -22,6 +22,7 @@ class IHM_3 {
         await IHM_AJOUTER.afficherSuiteEditeur();
       } else if (choix == "2") {
       } else if (choix == "3") {
+        await IHM_AJOUTER.afficheSuiteProduit();
       } else if (choix == "R") {
         valide = true;
       } else {
