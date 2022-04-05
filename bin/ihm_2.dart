@@ -20,6 +20,7 @@ class IHM_2 {
       if (choix == "1") {
         await IHM_MODIF.afficheModifEditeur();
       } else if (choix == "2") {
+        await IHM_MODIF.affichemodifAuteur();
       } else if (choix == "3") {
       } else if (choix == "R") {
         valide = true;

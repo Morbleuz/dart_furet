@@ -1,8 +1,11 @@
 import 'dart:io';
 
 import 'editeur.dart';
+import 'gestinAuteur.dart';
 import 'gestinEditeur.dart';
+import 'ihm_auteur.dart';
 import 'ihm_editeur.dart';
+import 'auteur.dart';
 
 class IHM_MODIF {
   //Faire les mofif dans la table editeur
@@ -98,6 +101,95 @@ class IHM_MODIF {
       //Aucun des choix n'est possible donc on recommence la boucle while avec la saisie
       else {
         print("/!\\ vous devez saisir une valeur valide ! /!\\ ");
+      }
+    }
+  }
+
+  static Future<void> affichemodifAuteur() async {
+    bool valide = false;
+    while (!valide) {
+      print("+------------------------------------------------------------------------+\n" +
+          "| Sélectionner une Options                                                |\n" +
+          "| 1 - Modifier le nom avec un ID                                          |\n" +
+          "| 2 - Modifier le prenom avec un ID                                       |\n" +
+          "| 3 - Modifer le nom et prenom avec un ID                              |\n" +
+          "| R - Retour                                                              |\n" +
+          "+-------------------------------------------------------------------------+");
+      String choix = stdin.readLineSync().toString();
+      //Affichage tout les Auteurs
+      if (choix == "1") {
+        bool ok = false;
+        print("\nSaisir un id.");
+        while (!ok) {
+          try {
+            int choice = int.parse(stdin.readLineSync().toString());
+            ok = true;
+            print("Saisir le nouveau nom");
+            String nouvnom = stdin.readLineSync().toString();
+            Auteur edit = await GestinAuteur.updateNomByID(nouvnom, choice);
+            if (!edit.estVide()) {
+              stdout.write(
+                  "L'Auteur modifié contient maintenant les valeurs suivante -> ");
+              IHM_AUTEUR.afficheInfoAuteur(edit);
+            } else {
+              print(
+                  "L'utilisateur que vous avez souhaiter modifié n'exsite pas.");
+            }
+          } catch (e) {
+            print("saisir un entier.");
+          }
+        }
+      } else if (choix == "2") {
+        bool ok = false;
+        print("\nSaisir un id.");
+        while (!ok) {
+          try {
+            int choice = int.parse(stdin.readLineSync().toString());
+            ok = true;
+            print("Saisir le nouveau prenom");
+            String nouvprenom = stdin.readLineSync().toString();
+            Auteur edit =
+                await GestinAuteur.updatePrenomById(nouvprenom, choice);
+            if (!edit.estVide()) {
+              stdout.write(
+                  "L'Auteur modifié contient maintenant les valeurs suivante -> ");
+              IHM_AUTEUR.afficheInfoAuteur(edit);
+            } else {
+              print(
+                  "L'utilisateur que vous avez souhaiter modifié n'exsite pas.");
+            }
+          } catch (e) {
+            print("saisir un entier.");
+          }
+        }
+      } else if (choix == "3") {
+        bool ok = false;
+        print("\nSaisir un id.");
+        while (!ok) {
+          try {
+            int choice = int.parse(stdin.readLineSync().toString());
+            ok = true;
+            print("Saisir le nouveau nom");
+            String nouvnom = stdin.readLineSync().toString();
+            print("Saisir le nouveau prenom");
+            String nouvprenom = stdin.readLineSync().toString();
+
+            Auteur edit = await GestinAuteur.updateNomEtPrenomByID(
+                nouvnom, nouvprenom, choice);
+            if (!edit.estVide()) {
+              stdout.write(
+                  "L'Auteur modifié contient maintenant les valeurs suivante -> ");
+              IHM_AUTEUR.afficheInfoAuteur(edit);
+            } else {
+              print(
+                  "L'utilisateur que vous avez souhaiter modifié n'exsite pas.");
+            }
+          } catch (e) {
+            print("saisir un entier.");
+          }
+        }
+      } else if (choix == "R") {
+        valide = true;
       }
     }
   }

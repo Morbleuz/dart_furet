@@ -33,4 +33,15 @@ class Auteur {
   void setPrenomAuteur(String PrenomAuteur) {
     this._prenomAuteur = PrenomAuteur;
   }
+
+  //Permet de savoir si l'éditeur est vide
+  bool estVide() {
+    bool vide = false;
+    if (this._idAuteur == "" &&
+        this._nomAuteur == "" &&
+        this._prenomAuteur == "") {
+      vide = true;
+    }
+    return vide;
+  }
 }

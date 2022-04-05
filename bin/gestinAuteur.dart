@@ -77,6 +77,24 @@ class GestinAuteur {
     return nouv;
   }
 
+  static Future<Auteur> updatePrenomById(String prenom, int id) async {
+    Auteur nouv = Auteur.vide();
+    try {
+      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+
+      Results reponse = await conn.query("UPDATE Auteur SET prenomAuteur='" +
+          prenom +
+          "'WHERE idAuteur='" +
+          id.toString() +
+          "';");
+      nouv = await selectByID(id);
+      conn.close();
+    } catch (e) {
+      e.toString();
+    }
+    return nouv;
+  }
+
   static Future<void> addNewAuteur(String nom, String prenom) async {
     try {
       MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
@@ -123,7 +141,7 @@ class GestinAuteur {
     try {
       MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
 
-      Results reponse = await conn.query("UPDATE Editeur SET prenomAuteur='" +
+      Results reponse = await conn.query("UPDATE Auteur SET prenomAuteur='" +
           prenom +
           "', nomAuteur='" +
           nom +
