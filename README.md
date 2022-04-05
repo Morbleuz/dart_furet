@@ -140,9 +140,9 @@ L'utilisation de ce logiciel est plutôt simple, vous avez juste à naviguer aux
 ## Contact
 
 
-Laude Axel : [![LinkedIn][linkedin-shield]][linkedin-url] 
+Laude Axel : [![LinkedIn][linkedin-shield]][linkedinA-url] 
 
-Sobkowiak Jonathan : [![LinkedIn][linkedin-shield]][linkedin-url]
+Sobkowiak Jonathan : [![LinkedIn][linkedin-shield]][linkedinJ-url]
 
 Lien du projet: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
@@ -162,5 +162,6 @@ Lien du projet: [https://github.com/your_username/repo_name](https://github.com/
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[linkedinA-url]: https://fr.linkedin.com/in/axel-l-b9620a228/en?trk=people-guest_people_search-card
+[linkedinJ-url]: https://fr.linkedin.com/in/jonathan-sobkowiak-2b5310228/en?trk=people-guest_people_search-card
+[product-screenshot]: terminal.png
