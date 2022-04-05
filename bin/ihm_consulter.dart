@@ -120,12 +120,42 @@ class IHM_CONSULTER {
       print("+------------------------------------------------------------------------+\n" +
           "| Sélectionner une Options                                                   |\n" +
           "| 1 - Afficher tout les Produits d'un Auteur                                 |\n" +
-          "| 2 - Afficher tout les informations sur  les Auteurs                        |\n" +
+          "| 2 - Afficher toutes les informations sur  les Auteurs                      |\n" +
           "| 3 - Afficher le nom des Auteurs                                            |\n" +
           "| R - Retour                                                                 |\n" +
           "+-------------------------------------------------------------------------+");
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
+        bool ok = false;
+        print("\nSaisir l'ID de l'auteur voulu.");
+        while (!ok) {
+          try {
+            int choice = int.parse(stdin.readLineSync().toString());
+            ok = true;
+            Auteur auteur = await GestinAuteur.selectByID(choice);
+            if (auteur.estVide()) {
+              print("L'auteur n'existe pas");
+            } else {
+              stdout.write("\n Pour l'auteur suivant -> ");
+              IHM_AUTEUR.afficheInfoAuteur(auteur);
+
+              List<Produit> lesproduits =
+                  await GestinProduit.selectWithAuteur(choice);
+              if (!lesproduits.isEmpty) {
+                print("\n Voici la liste des produits :");
+                for (Produit produit in lesproduits) {
+                  stdout.write(" ->");
+                  IHM_PRODUIT.afficheInfo(produit);
+                }
+              } else {
+                print("Aucun produits pour l'auteur voulu");
+              }
+            }
+          } catch (e) {
+            print("saisir un entier.");
+          }
+        }
+        print("\n");
       } else if (choix == "2") {
         List<Auteur> newAuteur = await GestinAuteur.selectAll();
         for (Auteur auteur in newAuteur) {

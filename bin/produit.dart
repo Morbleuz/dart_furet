@@ -47,7 +47,7 @@ class Produit {
   }
 
   String getPrix() {
-    return this._type;
+    return this._prix;
   }
 
   String getQuantite() {

@@ -14,7 +14,9 @@ class IHM_PRODUIT {
         ", " +
         produit.getAuteur() +
         ", " +
-        produit.getEditeur());
+        produit.getEditeur() +
+        ", " +
+        produit.getNomProduit());
   }
 
   static void afficheType(Produit produit) {

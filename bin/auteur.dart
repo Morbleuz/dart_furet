@@ -10,16 +10,6 @@ class Auteur {
   //Tout les getters
   //Méthode pour savoir si l'auteur est vide
 
-  bool estVide() {
-    bool vide = false;
-    if (this._idAuteur == "" &&
-        this._nomAuteur == "" &&
-        this._prenomAuteur == "") {
-      vide = true;
-    }
-    return vide;
-  }
-
   String getIdAuteur() {
     return this._idAuteur;
   }

@@ -61,7 +61,7 @@ CREATE TABLE `Editeur` (
 
 LOCK TABLES `Editeur` WRITE;
 /*!40000 ALTER TABLE `Editeur` DISABLE KEYS */;
-INSERT INTO `Editeur` VALUES (8,'zdaz','jojo'),(9,'delarue','victor'),(10,'delaville','holiv'),(11,'delacroix','joris'),(12,'R','R'),(13,'zdaz','jojo');
+INSERT INTO `Editeur` VALUES (1,'zdaz','jojo'),(2,'delarue','victor'),(3,'delaville','holiv'),(4,'delacroix','joris'),(5,'R','R'),(6,'zdaz','jojo');
 /*!40000 ALTER TABLE `Editeur` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -86,7 +86,7 @@ CREATE TABLE `Produit` (
   KEY `auteur` (`auteur`),
   CONSTRAINT `auteur` FOREIGN KEY (`auteur`) REFERENCES `Auteur` (`idAuteur`),
   CONSTRAINT `editeur` FOREIGN KEY (`editeur`) REFERENCES `Editeur` (`idEditeur`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --

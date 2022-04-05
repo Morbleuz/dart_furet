@@ -2,6 +2,8 @@ import 'auteur.dart';
 import 'bdd.dart';
 import 'package:mysql1/mysql1.dart';
 
+import 'produit.dart';
+
 class GestinAuteur {
   BDD _bdd = BDD();
 

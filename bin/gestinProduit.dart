@@ -1,10 +1,16 @@
 import 'package:mysql1/mysql1.dart';
 
+import 'auteur.dart';
 import 'bdd.dart';
+import 'gestinAuteur.dart';
 import 'produit.dart';
 
 class GestinProduit {
   BDD _bdd = BDD();
+
+  //Update le nom d'un produit par rapport à un id
+  //Update le prix d'un produit par rapport à un id
+  //Update la quantité d'un produit par rapport à un id
 
   //Affichage de tout les produits
   static Future<List<Produit>> selectAll() async {
@@ -29,6 +35,35 @@ class GestinProduit {
     }
 
     return produits;
+  }
+
+  //Selection d'un produit par rapport à un auteur
+  static Future<List<Produit>> selectWithAuteur(int id) async {
+    List<Produit> lesProduits = [];
+    try {
+      Auteur auteur = await GestinAuteur.selectByID(id);
+      if (!auteur.estVide()) {
+        MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+        Results reponse = await conn.query(
+            "Select * from Produit where auteur='" +
+                auteur.getIdAuteur() +
+                "';");
+        for (var row in reponse) {
+          lesProduits.add(Produit(
+              row[0].toString(),
+              row[1].toString(),
+              row[2].toString(),
+              row[3].toString(),
+              row[4].toString(),
+              row[5].toString(),
+              row[6].toString(),
+              row[7].toString()));
+        }
+
+        conn.close();
+      }
+    } catch (e) {}
+    return lesProduits;
   }
 
   //Affichage par ID
@@ -71,9 +106,9 @@ class GestinProduit {
               prix +
               "," +
               quantite +
-              "," +
+              ",'" +
               annePAru +
-              "," +
+              "'," +
               editeur +
               "," +
               auteur +
@@ -86,13 +121,25 @@ class GestinProduit {
     }
   }
 
+  //Enlève tout les produits
+  static Future<void> dellAllProduit() async {
+    try {
+      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+      conn.query("DELETE from Produit;");
+      conn.close();
+    } catch (e) {
+      e.toString();
+    }
+  }
+
   //Enlève un Produit
   static Future<List<Produit>> DellProduitByID(int idProduit) async {
     List<Produit> produits = new List.empty(growable: true);
     try {
       MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
-      Results reponse = await conn.query(
-          "DELETE from Produit WHERE id = " + idProduit.toString() + ";");
+      conn.query("DELETE from Produit WHERE idProduit = '" +
+          idProduit.toString() +
+          "';");
       conn.close();
     } catch (e) {
       e.toString();
