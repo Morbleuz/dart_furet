@@ -132,7 +132,7 @@ _Below is an example of how you can instruct your audience on installing and set
 <!-- USAGE EXAMPLES -->
 ## Utilisation
 
-L'utulisation de ce logiciel est plutôt simple, vous avez juste à naviguer aux travers des différents menu avec les touches 1,2,3,..  
+L'utilisation de ce logiciel est plutôt simple, vous avez juste à naviguer aux travers des différents menu avec les touches 1,2,3,..  
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
 

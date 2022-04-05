@@ -31,7 +31,28 @@ class IHM_AJOUTER {
     }
   }
 
-  static Future<void> afficheSuiteAuteur() async {}
+  static Future<void> afficheSuiteAuteur() async {
+    bool valide = false;
+    while (!valide) {
+      print("Entrer le nom de l'auteur");
+      String nomAuteur = stdin.readLineSync().toString();
+      print("Entrer le prenom de l'auteur");
+      String prenomAuteur = stdin.readLineSync().toString();
+      try {
+        await GestinAuteur.addNewAuteur(nomAuteur, prenomAuteur);
+        print("Ajout de l'utilisateur -> " + nomAuteur + ", " + prenomAuteur);
+      } catch (e) {
+        print(e.toString());
+      }
+
+      print("Voulez vous continuer à ajouter des Auteurs ? (y/n)");
+      String reponse = stdin.readLineSync().toString();
+      if (reponse == "n") {
+        valide = true;
+      }
+    }
+  }
+
   static Future<void> afficheSuiteProduit() async {
     bool valide = false;
     while (!valide) {

@@ -21,6 +21,7 @@ class IHM_4 {
       if (choix == "1") {
         await IHM_SUPPRIMER.afficherSuiteEditeur();
       } else if (choix == "2") {
+        await IHM_SUPPRIMER.afficherSuiteAuteur();
       } else if (choix == "3") {
       } else if (choix == "R") {
         valide = true;

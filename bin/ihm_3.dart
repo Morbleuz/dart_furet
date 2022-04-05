@@ -4,7 +4,7 @@ import 'ihm_modif.dart';
 import 'ihm_p.dart';
 
 class IHM_3 {
-  // Affiche les tables pour l'options 2 du ihm_P
+  // Affiche les tables pour l'options 3 du ihm_P
   static Future<void> afficherMenu() async {
     bool valide = false;
 
@@ -21,6 +21,7 @@ class IHM_3 {
       if (choix == "1") {
         await IHM_AJOUTER.afficherSuiteEditeur();
       } else if (choix == "2") {
+        await IHM_AJOUTER.afficheSuiteAuteur();
       } else if (choix == "3") {
         await IHM_AJOUTER.afficheSuiteProduit();
       } else if (choix == "R") {
