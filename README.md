@@ -89,7 +89,7 @@ Nous avons utulisés les languages suivant pour que le projet soit mené à bien
 
 Pour s'organiser nous avons choisis le logiciel Notion.
 Il nous a permis de s'organiser en se répartion les tâches, voir leurs états et savoir ou nous en étions
-Vous pouvez retrouver nôtre notion ici : https://salty-peripheral-b45.notion.site/d4315c2d750248569048b9ae80dba48e?v=aecc58c0dccc46afbde2c338e2f9f842
+Vous pouvez retrouver nôtre notion <a href="https://salty-peripheral-b45.notion.site/d4315c2d750248569048b9ae80dba48e?v=aecc58c0dccc46afbde2c338e2f9f842">ICI</a>
 
 
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
@@ -144,7 +144,7 @@ Laude Axel : [![LinkedIn][linkedin-shield]][linkedinA-url]
 
 Sobkowiak Jonathan : [![LinkedIn][linkedin-shield]][linkedinJ-url]
 
-Lien du projet: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Lien du projet: <a href="https://github.com/your_username/repo_name">ICI</a>
 
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
