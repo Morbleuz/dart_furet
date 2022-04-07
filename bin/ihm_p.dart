@@ -9,6 +9,53 @@ import 'ihm_4.dart';
 import 'ihm_5.dart';
 
 class IHM_P {
+  static double saisieDouble() {
+    bool valideDouble = false;
+    double nombre = 0;
+    while (!valideDouble) {
+      try {
+        nombre = double.parse(stdin.readLineSync().toString());
+        valideDouble = true;
+      } catch (e) {
+        print("Erreur dans la saisie.");
+      }
+    }
+    return nombre;
+  }
+
+  static int saisieAnnee() {
+    bool valideAnnee = false;
+    int annee = 0;
+    while (!valideAnnee) {
+      try {
+        annee = int.parse(stdin.readLineSync().toString());
+        if (annee < 9999 && annee > -9999) {
+          valideAnnee = true;
+        } else {
+          print("Rentrer une année entre -9999 et 9999");
+        }
+      } catch (e) {
+        print("Erreur dans la saisie");
+      }
+    }
+
+    return annee;
+  }
+
+  static int saisieInt() {
+    bool valideInt = false;
+    int nombre = 0;
+    while (!valideInt) {
+      try {
+        nombre = int.parse(stdin.readLineSync().toString());
+        valideInt = true;
+      } catch (e) {
+        print("Erreur dans la saisie.");
+      }
+    }
+    return nombre;
+  }
+
   static String saisieString() {
     bool valideString = false;
     String s = "";
