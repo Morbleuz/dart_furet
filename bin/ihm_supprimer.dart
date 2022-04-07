@@ -6,11 +6,21 @@ import 'editeur.dart';
 import 'gestinAuteur.dart';
 import 'gestinEditeur.dart';
 import 'gestinProduit.dart';
+import 'gestinTable.dart';
 import 'ihm_editeur.dart';
 import 'auteur.dart';
 import 'produit.dart';
 
 class IHM_SUPPRIMER {
+  static Future<void> afficheSuiteTables(ConnectionSettings settings) async {
+    try {
+      await GestinTable.supprimeTouteLesTables(settings);
+      print("Toutes les tables ont été correctement supprimer.\n");
+    } catch (e) {
+      print("Erreur dans la suppression des tables.\n");
+    }
+  }
+
   static Future<void> afficheSuiteProduit(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {
@@ -30,7 +40,7 @@ class IHM_SUPPRIMER {
             ok = true;
             Produit produit = await GestinProduit.selectByID(settings, id);
             if (!produit.estVide()) {
-              await GestinProduit.DellProduitByID(settings, id);
+              await GestinProduit.dellProduitByID(settings, id);
               print(
                   "Suppression de l'utilisateur portant l'id " + id.toString());
             } else {

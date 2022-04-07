@@ -141,7 +141,7 @@ class GestinProduit {
   }
 
   //Enlève un Produit
-  static Future<List<Produit>> DellProduitByID(
+  static Future<List<Produit>> dellProduitByID(
       ConnectionSettings settings, int idProduit) async {
     List<Produit> produits = new List.empty(growable: true);
     try {

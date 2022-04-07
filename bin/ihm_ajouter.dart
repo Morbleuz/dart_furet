@@ -7,10 +7,20 @@ import 'editeur.dart';
 import 'gestinAuteur.dart';
 import 'gestinEditeur.dart';
 import 'gestinProduit.dart';
+import 'gestinTable.dart';
 import 'ihm_auteur.dart';
 import 'ihm_editeur.dart';
 
 class IHM_AJOUTER {
+  static Future<void> afficheSuiteTable(ConnectionSettings settings) async {
+    try {
+      await GestinTable.ajouterLesTables(settings);
+      print("Ajout des tables avec succès.");
+    } catch (e) {
+      print("Erreur");
+    }
+  }
+
   static Future<void> afficherSuiteEditeur(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {

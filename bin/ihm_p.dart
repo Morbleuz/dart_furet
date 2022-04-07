@@ -6,6 +6,7 @@ import 'ihm_1.dart';
 import 'ihm_2.dart';
 import 'ihm_3.dart';
 import 'ihm_4.dart';
+import 'ihm_5.dart';
 
 class IHM_P {
   static String saisieString() {
@@ -29,7 +30,7 @@ class IHM_P {
     print("Entrez le nom de l'utilisateur");
     String user = saisieString();
     print("Entrez le mot de passe de l'utilisateur");
-    String password = saisieString();
+    String password = saisieMotDePasse();
     ConnectionSettings parametre = ConnectionSettings(
       host: "localhost",
       port: 3306,
@@ -62,6 +63,23 @@ class IHM_P {
         "|_|  \\___|_|  |_| |_| |_|\\___|\\__|\\__,_|_|  \\___|\n");
   }
 
+  //Saisie d'un mot de pass
+  static String saisieMotDePasse() {
+    bool saisieValide = false;
+    String s = "";
+    while (!saisieValide) {
+      try {
+        stdin.echoMode = false;
+        s = stdin.readLineSync().toString();
+        saisieValide = true;
+        stdin.echoMode = true;
+      } catch (e) {
+        print("Erreur dans la saisie.");
+      }
+    }
+    return s;
+  }
+
   //Affichage du menu
   static void vueDuMenu() {
     print("+----------------------------------------+\n" +
@@ -69,7 +87,8 @@ class IHM_P {
         "| 2 - Modifier le contenu d'une table    |\n" +
         "| 3 - Insérer une donnée                 |\n" +
         "| 4 - Supprimer une ou plusieurs données |\n" +
-        "| 5 - Tester la connexion à la BDD       |\n" +
+        "| 5 - Gestion des tables                 |\n" +
+        "| 6 - Tester la connexion à la BDD       |\n" +
         "| Q - Quitter le programme               |\n" +
         "+----------------------------------------+");
   }
@@ -89,6 +108,8 @@ class IHM_P {
       } else if (choix == "4") {
         await IHM_4.afficherMenu(settings);
       } else if (choix == "5") {
+        await IHM_5.afficherMenu(settings);
+      } else if (choix == "6") {
         if (!await BDD.testConnection(settings)) {
           print("Connexion impossible");
         } else {
