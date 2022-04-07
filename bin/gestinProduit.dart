@@ -161,7 +161,7 @@ class GestinProduit {
       String auteur,
       String nomProduit) async {
     try {
-      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+      MySqlConnection conn = await MySqlConnection.connect(settings);
 
       conn.query(
           "insert into Produit(type,prix,quantite,AnnePAru,editeur,auteur,nomProduit) VALUES ('" +

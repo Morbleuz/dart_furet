@@ -29,7 +29,7 @@ class IHM_P {
     while (!valideAnnee) {
       try {
         annee = int.parse(stdin.readLineSync().toString());
-        if (annee < 9999 && annee > -9999) {
+        if (annee.toString().length < 4) {
           valideAnnee = true;
         } else {
           print("Rentrer une année entre -9999 et 9999");
