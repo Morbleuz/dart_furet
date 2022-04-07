@@ -9,8 +9,64 @@ class GestinProduit {
   BDD _bdd = BDD();
 
   //Update le nom d'un produit par rapport à un id
+  static Future<Produit> updateNomByID(
+      ConnectionSettings settings, String nom, int id) async {
+    Produit nouv = Produit.vide();
+    try {
+      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+
+      Results reponse = await conn.query("UPDATE Produit SET nomProduit='" +
+          nom +
+          "'WHERE idProduit='" +
+          id.toString() +
+          "';");
+      nouv = await selectByID(settings, id);
+      conn.close();
+    } catch (e) {
+      e.toString();
+    }
+    return nouv;
+  }
+
   //Update le prix d'un produit par rapport à un id
+  static Future<Produit> updatePrixByID(
+      ConnectionSettings settings, int prix, int id) async {
+    Produit nouv = Produit.vide();
+    try {
+      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+
+      Results reponse = await conn.query("UPDATE Produit SET prix='" +
+          prix.toString() +
+          "'WHERE idProduit='" +
+          id.toString() +
+          "';");
+      nouv = await selectByID(settings, id);
+      conn.close();
+    } catch (e) {
+      e.toString();
+    }
+    return nouv;
+  }
+
   //Update la quantité d'un produit par rapport à un id
+  static Future<Produit> updateQuantiteByID(
+      ConnectionSettings settings, int quantite, int id) async {
+    Produit nouv = Produit.vide();
+    try {
+      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+
+      Results reponse = await conn.query("UPDATE Produit SET quantite='" +
+          quantite.toString() +
+          "'WHERE idProduit='" +
+          id.toString() +
+          "';");
+      nouv = await selectByID(settings, id);
+      conn.close();
+    } catch (e) {
+      e.toString();
+    }
+    return nouv;
+  }
 
   //Affichage de tout les produits
   static Future<List<Produit>> selectAll(ConnectionSettings settings) async {

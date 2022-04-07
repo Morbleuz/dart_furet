@@ -24,6 +24,7 @@ class IHM_2 {
       } else if (choix == "2") {
         await IHM_MODIF.affichemodifAuteur(settings);
       } else if (choix == "3") {
+        await IHM_MODIF.affichemodifProduit(settings);
       } else if (choix == "R") {
         valide = true;
       } else {
