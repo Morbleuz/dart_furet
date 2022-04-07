@@ -9,6 +9,7 @@ import 'gestinProduit.dart';
 import 'ihm_auteur.dart';
 import 'ihm_editeur.dart';
 import 'auteur.dart';
+import 'ihm_p.dart';
 import 'ihm_produit.dart';
 import 'produit.dart';
 
@@ -218,10 +219,10 @@ class IHM_MODIF {
         print("\nSaisir un id.");
         while (!ok) {
           try {
-            int choice = int.parse(stdin.readLineSync().toString());
+            int choice = IHM_P.saisieInt();
             ok = true;
             print("Saisir le nouveau nom");
-            String nouvnom = stdin.readLineSync().toString();
+            String nouvnom = IHM_P.saisieString();
             Produit edit =
                 await GestinProduit.updateNomByID(settings, nouvnom, choice);
             if (!edit.estVide()) {
@@ -240,10 +241,10 @@ class IHM_MODIF {
         print("\nSaisir un id.");
         while (!ok) {
           try {
-            int choice = int.parse(stdin.readLineSync().toString());
+            int choice = IHM_P.saisieInt();
             ok = true;
             print("Saisir le nouveau prix");
-            int nouvprix = int.parse(stdin.readLineSync().toString());
+            double nouvprix = IHM_P.saisieDouble();
             Produit edit =
                 await GestinProduit.updatePrixByID(settings, nouvprix, choice);
             if (!edit.estVide()) {
@@ -262,10 +263,10 @@ class IHM_MODIF {
         print("\nSaisir un id.");
         while (!ok) {
           try {
-            int choice = int.parse(stdin.readLineSync().toString());
+            int choice = IHM_P.saisieInt();
             ok = true;
             print("Saisir la nouvelle quantite");
-            int nouvquantite = int.parse(stdin.readLineSync().toString());
+            int nouvquantite = IHM_P.saisieInt();
 
             Produit edit = await GestinProduit.updateQuantiteByID(
                 settings, nouvquantite, choice);

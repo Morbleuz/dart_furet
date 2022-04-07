@@ -30,7 +30,7 @@ class GestinProduit {
 
   //Update le prix d'un produit par rapport à un id
   static Future<Produit> updatePrixByID(
-      ConnectionSettings settings, int prix, int id) async {
+      ConnectionSettings settings, double prix, int id) async {
     Produit nouv = Produit.vide();
     try {
       MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
