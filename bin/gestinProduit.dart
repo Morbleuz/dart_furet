@@ -13,10 +13,10 @@ class GestinProduit {
   //Update la quantité d'un produit par rapport à un id
 
   //Affichage de tout les produits
-  static Future<List<Produit>> selectAll() async {
-    List<Produit> produits = new List.empty(growable: true);
+  static Future<List<Produit>> selectAll(ConnectionSettings settings) async {
+    List<Produit> produits = [];
     try {
-      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+      MySqlConnection conn = await MySqlConnection.connect(settings);
       Results reponse = await conn.query("SELECT * from Produit;");
       for (var row in reponse) {
         produits.add(Produit(
@@ -38,12 +38,13 @@ class GestinProduit {
   }
 
   //Selection d'un produit par rapport à un auteur
-  static Future<List<Produit>> selectWithAuteur(int id) async {
+  static Future<List<Produit>> selectWithAuteur(
+      ConnectionSettings settings, int id) async {
     List<Produit> lesProduits = [];
     try {
-      Auteur auteur = await GestinAuteur.selectByID(id);
+      Auteur auteur = await GestinAuteur.selectByID(settings, id);
       if (!auteur.estVide()) {
-        MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+        MySqlConnection conn = await MySqlConnection.connect(settings);
         Results reponse = await conn.query(
             "Select * from Produit where auteur='" +
                 auteur.getIdAuteur() +
@@ -67,10 +68,10 @@ class GestinProduit {
   }
 
   //Affichage par ID
-  static Future<Produit> selectByID(int id) async {
+  static Future<Produit> selectByID(ConnectionSettings settings, int id) async {
     Produit nouv = Produit.vide();
     try {
-      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+      MySqlConnection conn = await MySqlConnection.connect(settings);
 
       Results reponse = await conn.query(
           "SELECT * from Produit WHERE idProduit=" + id.toString() + ";");
@@ -94,8 +95,15 @@ class GestinProduit {
   }
 
   //Ajoute un nouveau Produit
-  static Future<void> addNewProduit(String type, String prix, String quantite,
-      String annePAru, String editeur, String auteur, String nomProduit) async {
+  static Future<void> addNewProduit(
+      ConnectionSettings settings,
+      String type,
+      String prix,
+      String quantite,
+      String annePAru,
+      String editeur,
+      String auteur,
+      String nomProduit) async {
     try {
       MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
 
@@ -122,9 +130,9 @@ class GestinProduit {
   }
 
   //Enlève tout les produits
-  static Future<void> dellAllProduit() async {
+  static Future<void> dellAllProduit(ConnectionSettings settings) async {
     try {
-      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+      MySqlConnection conn = await MySqlConnection.connect(settings);
       conn.query("DELETE from Produit;");
       conn.close();
     } catch (e) {
@@ -133,10 +141,11 @@ class GestinProduit {
   }
 
   //Enlève un Produit
-  static Future<List<Produit>> DellProduitByID(int idProduit) async {
+  static Future<List<Produit>> DellProduitByID(
+      ConnectionSettings settings, int idProduit) async {
     List<Produit> produits = new List.empty(growable: true);
     try {
-      MySqlConnection conn = await MySqlConnection.connect(BDD.getSettings());
+      MySqlConnection conn = await MySqlConnection.connect(settings);
       conn.query("DELETE from Produit WHERE idProduit = '" +
           idProduit.toString() +
           "';");

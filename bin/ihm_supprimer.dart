@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:mysql1/mysql1.dart';
+
 import 'editeur.dart';
 import 'gestinAuteur.dart';
 import 'gestinEditeur.dart';
@@ -9,7 +11,7 @@ import 'auteur.dart';
 import 'produit.dart';
 
 class IHM_SUPPRIMER {
-  static Future<void> afficheSuiteProduit() async {
+  static Future<void> afficheSuiteProduit(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {
       print("+------------------------------------------------------------------------+\n" +
@@ -26,9 +28,9 @@ class IHM_SUPPRIMER {
           try {
             int id = int.parse(stdin.readLineSync().toString());
             ok = true;
-            Produit produit = await GestinProduit.selectByID(id);
+            Produit produit = await GestinProduit.selectByID(settings, id);
             if (!produit.estVide()) {
-              await GestinProduit.DellProduitByID(id);
+              await GestinProduit.DellProduitByID(settings, id);
               print(
                   "Suppression de l'utilisateur portant l'id " + id.toString());
             } else {
@@ -44,7 +46,7 @@ class IHM_SUPPRIMER {
             "/!\\ Vous êtes sur le point de supprimer toutes les données de Editeur mais égalemment de Produit, êtes vous sur ? (y/n) /!\\");
         String sup = stdin.readLineSync().toString();
         if (sup == "y") {
-          await GestinProduit.dellAllProduit();
+          await GestinProduit.dellAllProduit(settings);
           print("Suppresion de toutes les données.");
         } else {
           print("Retour");
@@ -57,7 +59,7 @@ class IHM_SUPPRIMER {
     }
   }
 
-  static Future<void> afficherSuiteEditeur() async {
+  static Future<void> afficherSuiteEditeur(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {
       print("+------------------------------------------------------------------------+\n" +
@@ -74,9 +76,9 @@ class IHM_SUPPRIMER {
           try {
             int id = int.parse(stdin.readLineSync().toString());
             ok = true;
-            Editeur edit = await GestinEditeur.selectByID(id);
+            Editeur edit = await GestinEditeur.selectByID(settings, id);
             if (!edit.estVide()) {
-              await GestinEditeur.dellEditeurByID(id);
+              await GestinEditeur.dellEditeurByID(settings, id);
               print(
                   "Suppression de l'utilisateur portant l'id " + id.toString());
             } else {
@@ -92,7 +94,7 @@ class IHM_SUPPRIMER {
             "/!\\ Vous êtes sur le point de supprimer toutes les données de Editeur mais égalemment de Produit, êtes vous sur ? (y/n) /!\\");
         String sup = stdin.readLineSync().toString();
         if (sup == "y") {
-          await GestinEditeur.dellAllEditeur();
+          await GestinEditeur.dellAllEditeur(settings);
           print("Suppresion de toutes les données.");
         } else {
           print("Retour");
@@ -105,7 +107,7 @@ class IHM_SUPPRIMER {
     }
   }
 
-  static Future<void> afficherSuiteAuteur() async {
+  static Future<void> afficherSuiteAuteur(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {
       print("+------------------------------------------------------------------------+\n" +
@@ -122,9 +124,9 @@ class IHM_SUPPRIMER {
           try {
             int id = int.parse(stdin.readLineSync().toString());
             ok = true;
-            Auteur edit = await GestinAuteur.selectByID(id);
+            Auteur edit = await GestinAuteur.selectByID(settings, id);
             if (!edit.estVide()) {
-              await GestinAuteur.dellAuteurByID(id);
+              await GestinAuteur.dellAuteurByID(settings, id);
               print(
                   "Suppression de l'utilisateur portant l'id " + id.toString());
             } else {
@@ -140,7 +142,7 @@ class IHM_SUPPRIMER {
             "/!\\ Vous êtes sur le point de supprimer toutes les données de Auteur mais égalemment de Produit, êtes vous sur ? (y/n) /!\\");
         String sup = stdin.readLineSync().toString();
         if (sup == "y") {
-          await GestinAuteur.dellAllAuteur();
+          await GestinAuteur.dellAllAuteur(settings);
           print("Suppresion de toutes les données.");
         } else {
           print("Retour");

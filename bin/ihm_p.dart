@@ -1,4 +1,6 @@
 import 'dart:io';
+import 'package:mysql1/mysql1.dart';
+
 import 'bdd.dart';
 import 'ihm_1.dart';
 import 'ihm_2.dart';
@@ -6,6 +8,38 @@ import 'ihm_3.dart';
 import 'ihm_4.dart';
 
 class IHM_P {
+  static String saisieString() {
+    bool valideString = false;
+    String s = "";
+    while (!valideString) {
+      try {
+        s = stdin.readLineSync().toString();
+        valideString = true;
+      } catch (e) {
+        print(e.toString());
+      }
+    }
+    return s;
+  }
+
+  //Prends les paramètres de connexion
+  static ConnectionSettings parametreConnexion() {
+    print("Entrez le nom de la base de donnée");
+    String bdd = saisieString();
+    print("Entrez le nom de l'utilisateur");
+    String user = saisieString();
+    print("Entrez le mot de passe de l'utilisateur");
+    String password = saisieString();
+    ConnectionSettings parametre = ConnectionSettings(
+      host: "localhost",
+      port: 3306,
+      user: user,
+      db: bdd,
+      password: password,
+    );
+    return parametre;
+  }
+
   //Affichage du titre
   static void afficheTitre() {
     print("" +
@@ -41,21 +75,21 @@ class IHM_P {
   }
 
   //Affichage du menu principale
-  static Future<void> afficheMenu() async {
+  static Future<void> afficheMenu(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {
       vueDuMenu();
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
-        await IHM_1.afficherMenu();
+        await IHM_1.afficherMenu(settings);
       } else if (choix == "2") {
-        await IHM_2.afficherMenu();
+        await IHM_2.afficherMenu(settings);
       } else if (choix == "3") {
-        await IHM_3.afficherMenu();
+        await IHM_3.afficherMenu(settings);
       } else if (choix == "4") {
-        await IHM_4.afficherMenu();
+        await IHM_4.afficherMenu(settings);
       } else if (choix == "5") {
-        if (!await BDD.testConnection()) {
+        if (!await BDD.testConnection(settings)) {
           print("Connexion impossible");
         } else {
           print("Connexion réussie !");

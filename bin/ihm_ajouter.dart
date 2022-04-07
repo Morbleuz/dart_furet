@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:mysql1/mysql1.dart';
+
 import 'auteur.dart';
 import 'editeur.dart';
 import 'gestinAuteur.dart';
@@ -9,7 +11,7 @@ import 'ihm_auteur.dart';
 import 'ihm_editeur.dart';
 
 class IHM_AJOUTER {
-  static Future<void> afficherSuiteEditeur() async {
+  static Future<void> afficherSuiteEditeur(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {
       print("Entrez le nom de l'éditeur.");
@@ -17,7 +19,7 @@ class IHM_AJOUTER {
       print("Entrez l'adresse de l'éditeur.");
       String adresse = stdin.readLineSync().toString();
       try {
-        await GestinEditeur.addNewEditeur(nom, adresse);
+        await GestinEditeur.addNewEditeur(settings, nom, adresse);
         print("Ajout de l'utilisateur -> " + nom + ", " + adresse);
       } catch (e) {
         print("Erreur : " + e.toString());
@@ -31,7 +33,7 @@ class IHM_AJOUTER {
     }
   }
 
-  static Future<void> afficheSuiteAuteur() async {
+  static Future<void> afficheSuiteAuteur(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {
       print("Entrer le nom de l'auteur");
@@ -39,7 +41,7 @@ class IHM_AJOUTER {
       print("Entrer le prenom de l'auteur");
       String prenomAuteur = stdin.readLineSync().toString();
       try {
-        await GestinAuteur.addNewAuteur(nomAuteur, prenomAuteur);
+        await GestinAuteur.addNewAuteur(settings, nomAuteur, prenomAuteur);
         print("Ajout de l'utilisateur -> " + nomAuteur + ", " + prenomAuteur);
       } catch (e) {
         print(e.toString());
@@ -53,7 +55,7 @@ class IHM_AJOUTER {
     }
   }
 
-  static Future<void> afficheSuiteProduit() async {
+  static Future<void> afficheSuiteProduit(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {
       print("Entrez le nom du produit.");
@@ -78,7 +80,8 @@ class IHM_AJOUTER {
                   try {
                     print("Saisir l'id de l'éditeur");
                     int editeur = int.parse(stdin.readLineSync().toString());
-                    Editeur edit = await GestinEditeur.selectByID(editeur);
+                    Editeur edit =
+                        await GestinEditeur.selectByID(settings, editeur);
                     if (!edit.estVide()) {
                       editvalide = true;
                       bool auteurValide = false;
@@ -87,13 +90,15 @@ class IHM_AJOUTER {
                           print("Saisir l'id de l'auteur");
                           int auteur =
                               int.parse(stdin.readLineSync().toString());
-                          Auteur auteu = await GestinAuteur.selectByID(auteur);
+                          Auteur auteu =
+                              await GestinAuteur.selectByID(settings, auteur);
 
                           if (!auteu.estVide()) {
                             auteurValide = true;
                             valide = true;
                             try {
                               await GestinProduit.addNewProduit(
+                                  settings,
                                   type.toString(),
                                   prix.toString(),
                                   quantite.toString(),

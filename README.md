@@ -89,7 +89,7 @@ Nous avons utulisés les languages suivant pour que le projet soit mené à bien
 
 Pour s'organiser nous avons choisis le logiciel Notion.
 Il nous a permis de s'organiser en se répartion les tâches, voir leurs états et savoir ou nous en étions
-Vous pouvez retrouver nôtre notion <a href="https://salty-peripheral-b45.notion.site/d4315c2d750248569048b9ae80dba48e?v=aecc58c0dccc46afbde2c338e2f9f842">ICI</a>
+Vous pouvez retrouver nôtre notion ici : https://salty-peripheral-b45.notion.site/d4315c2d750248569048b9ae80dba48e?v=aecc58c0dccc46afbde2c338e2f9f842
 
 
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
@@ -140,11 +140,11 @@ L'utilisation de ce logiciel est plutôt simple, vous avez juste à naviguer aux
 ## Contact
 
 
-Laude Axel : [![LinkedIn][linkedin-shield]][linkedinA-url] 
+Laude Axel : [![LinkedIn][linkedin-shield]][linkedin-url] 
 
-Sobkowiak Jonathan : [![LinkedIn][linkedin-shield]][linkedinJ-url]
+Sobkowiak Jonathan : [![LinkedIn][linkedin-shield]][linkedin-url]
 
-Lien du projet: <a href="https://github.com/your_username/repo_name">ICI</a>
+Lien du projet: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
 
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
@@ -162,6 +162,5 @@ Lien du projet: <a href="https://github.com/your_username/repo_name">ICI</a>
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedinA-url]: https://fr.linkedin.com/in/axel-l-b9620a228/en?trk=people-guest_people_search-card
-[linkedinJ-url]: https://fr.linkedin.com/in/jonathan-sobkowiak-2b5310228/en?trk=people-guest_people_search-card
-[product-screenshot]: terminal.png
+[linkedin-url]: https://linkedin.com/in/othneildrew
+[product-screenshot]: images/screenshot.png

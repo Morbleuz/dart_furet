@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:mysql1/mysql1.dart';
+
 import 'editeur.dart';
 import 'gestinAuteur.dart';
 import 'gestinEditeur.dart';
@@ -9,7 +11,7 @@ import 'auteur.dart';
 
 class IHM_MODIF {
   //Faire les mofif dans la table editeur
-  static Future<void> afficheModifEditeur() async {
+  static Future<void> afficheModifEditeur(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {
       print("+------------------------------------------------------------------------+\n" +
@@ -30,7 +32,8 @@ class IHM_MODIF {
             ok = true;
             print("Saisir le nouveau nom");
             String nouvnom = stdin.readLineSync().toString();
-            Editeur edit = await GestinEditeur.updateNomByID(nouvnom, choice);
+            Editeur edit =
+                await GestinEditeur.updateNomByID(settings, nouvnom, choice);
             if (!edit.estVide()) {
               stdout.write(
                   "L'éditeur modifié contient maintenant les valeurs suivante -> ");
@@ -54,8 +57,8 @@ class IHM_MODIF {
             ok = true;
             print("Saisir la nouvelle adresse");
             String nouvnom = stdin.readLineSync().toString();
-            Editeur edit =
-                await GestinEditeur.updateAdresseByID(nouvnom, choice);
+            Editeur edit = await GestinEditeur.updateAdresseByID(
+                settings, nouvnom, choice);
             if (!edit.estVide()) {
               stdout.write(
                   "L'éditeur modifié contient maintenant les valeurs suivante -> ");
@@ -79,8 +82,8 @@ class IHM_MODIF {
             String adresse = stdin.readLineSync().toString();
             print("Saisir le nouveau nom");
             String nom = stdin.readLineSync().toString();
-            Editeur edit =
-                await GestinEditeur.updateNomEtAdresseByID(nom, adresse, id);
+            Editeur edit = await GestinEditeur.updateNomEtAdresseByID(
+                settings, nom, adresse, id);
             if (!edit.estVide()) {
               stdout.write(
                   "L'éditeur modifié contient maintenant les valeurs suivante -> ");
@@ -105,7 +108,7 @@ class IHM_MODIF {
     }
   }
 
-  static Future<void> affichemodifAuteur() async {
+  static Future<void> affichemodifAuteur(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {
       print("+------------------------------------------------------------------------+\n" +
@@ -126,7 +129,8 @@ class IHM_MODIF {
             ok = true;
             print("Saisir le nouveau nom");
             String nouvnom = stdin.readLineSync().toString();
-            Auteur edit = await GestinAuteur.updateNomByID(nouvnom, choice);
+            Auteur edit =
+                await GestinAuteur.updateNomByID(settings, nouvnom, choice);
             if (!edit.estVide()) {
               stdout.write(
                   "L'Auteur modifié contient maintenant les valeurs suivante -> ");
@@ -148,8 +152,8 @@ class IHM_MODIF {
             ok = true;
             print("Saisir le nouveau prenom");
             String nouvprenom = stdin.readLineSync().toString();
-            Auteur edit =
-                await GestinAuteur.updatePrenomById(nouvprenom, choice);
+            Auteur edit = await GestinAuteur.updatePrenomById(
+                settings, nouvprenom, choice);
             if (!edit.estVide()) {
               stdout.write(
                   "L'Auteur modifié contient maintenant les valeurs suivante -> ");
@@ -175,7 +179,7 @@ class IHM_MODIF {
             String nouvprenom = stdin.readLineSync().toString();
 
             Auteur edit = await GestinAuteur.updateNomEtPrenomByID(
-                nouvnom, nouvprenom, choice);
+                settings, nouvnom, nouvprenom, choice);
             if (!edit.estVide()) {
               stdout.write(
                   "L'Auteur modifié contient maintenant les valeurs suivante -> ");

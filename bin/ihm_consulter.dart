@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import 'package:mysql1/mysql1.dart';
+
 import 'auteur.dart';
 import 'bdd.dart';
 import 'editeur.dart';
@@ -14,7 +16,7 @@ import 'produit.dart';
 
 class IHM_CONSULTER {
   // Affiche la suite du menu quand on choisi la table Editeur
-  static Future<void> afficherSuiteEditeur() async {
+  static Future<void> afficherSuiteEditeur(ConnectionSettings settings) async {
     bool valide = false;
     while (!valide) {
       print("+------------------------------------------------------------------------+\n" +
@@ -29,7 +31,7 @@ class IHM_CONSULTER {
       String choix = stdin.readLineSync().toString();
       //Affichage tout les éditeurs
       if (choix == "1") {
-        List<Editeur> editeurs = await GestinEditeur.selectAll();
+        List<Editeur> editeurs = await GestinEditeur.selectAll(settings);
         if (!editeurs.isEmpty) {
           print("\nListe de tout les éditeurs :");
           for (Editeur edit in editeurs) {
@@ -50,7 +52,7 @@ class IHM_CONSULTER {
           try {
             int choice = int.parse(stdin.readLineSync().toString());
             ok = true;
-            Editeur edit = await GestinEditeur.selectByID(choice);
+            Editeur edit = await GestinEditeur.selectByID(settings, choice);
             if (edit.estVide()) {
               print("L'éditeur n'existe pas");
             } else {
@@ -67,7 +69,7 @@ class IHM_CONSULTER {
       else if (choix == "3") {
         print("\nListe de tout les noms des éditeurs :");
 
-        List<Editeur> editeurs = await GestinEditeur.selectAll();
+        List<Editeur> editeurs = await GestinEditeur.selectAll(settings);
         for (Editeur edit in editeurs) {
           stdout.write("-> ");
           IHM_EDITEUR.afficheNom(edit);
@@ -78,7 +80,7 @@ class IHM_CONSULTER {
       else if (choix == "4") {
         print("\nListe de tout les éditeurs selon une adresse:");
 
-        List<Editeur> editeurs = await GestinEditeur.selectAll();
+        List<Editeur> editeurs = await GestinEditeur.selectAll(settings);
         for (Editeur edit in editeurs) {
           stdout.write("-> ");
           IHM_EDITEUR.afficheAdresse(edit);
@@ -87,7 +89,7 @@ class IHM_CONSULTER {
       } else if (choix == "5") {
         print("Entrez un nom");
         String nom = stdin.readLineSync().toString();
-        List<Editeur> editeurs = await GestinEditeur.selectByNom(nom);
+        List<Editeur> editeurs = await GestinEditeur.selectByNom(settings, nom);
         if (!editeurs.isEmpty) {
           print("\nListe de tout les éditeurs :");
           for (Editeur edit in editeurs) {
@@ -113,7 +115,7 @@ class IHM_CONSULTER {
   }
 
   // Affiche la suite du menu quand on choisi la table Auteur
-  static Future<void> afficherSuiteAuteur() async {
+  static Future<void> afficherSuiteAuteur(ConnectionSettings settings) async {
     bool valide = false;
 
     while (!valide) {
@@ -132,7 +134,7 @@ class IHM_CONSULTER {
           try {
             int choice = int.parse(stdin.readLineSync().toString());
             ok = true;
-            Auteur auteur = await GestinAuteur.selectByID(choice);
+            Auteur auteur = await GestinAuteur.selectByID(settings, choice);
             if (auteur.estVide()) {
               print("L'auteur n'existe pas");
             } else {
@@ -140,7 +142,7 @@ class IHM_CONSULTER {
               IHM_AUTEUR.afficheInfoAuteur(auteur);
 
               List<Produit> lesproduits =
-                  await GestinProduit.selectWithAuteur(choice);
+                  await GestinProduit.selectWithAuteur(settings, choice);
               if (!lesproduits.isEmpty) {
                 print("\n Voici la liste des produits :");
                 for (Produit produit in lesproduits) {
@@ -157,13 +159,13 @@ class IHM_CONSULTER {
         }
         print("\n");
       } else if (choix == "2") {
-        List<Auteur> newAuteur = await GestinAuteur.selectAll();
+        List<Auteur> newAuteur = await GestinAuteur.selectAll(settings);
         for (Auteur auteur in newAuteur) {
           stdout.write("-> ");
           IHM_AUTEUR.afficheInfoAuteur(auteur);
         }
       } else if (choix == "3") {
-        List<Auteur> newAuteur = await GestinAuteur.selectAll();
+        List<Auteur> newAuteur = await GestinAuteur.selectAll(settings);
         for (Auteur auteur in newAuteur) {
           stdout.write("-> ");
           IHM_AUTEUR.afficheNom(auteur);
@@ -178,7 +180,7 @@ class IHM_CONSULTER {
   }
 
   // Affiche la suite du menu quand on choisi la table Produit
-  static Future<void> afficherSuiteProduit() async {
+  static Future<void> afficherSuiteProduit(ConnectionSettings settings) async {
     bool valide = false;
 
     while (!valide) {
@@ -191,7 +193,7 @@ class IHM_CONSULTER {
           "+-------------------------------------------------------------------------+");
       String choix = stdin.readLineSync().toString();
       if (choix == "1") {
-        List<Produit> produits = await GestinProduit.selectAll();
+        List<Produit> produits = await GestinProduit.selectAll(settings);
         if (!produits.isEmpty) {
           print("\nListe de tout les Produits :");
           for (Produit edit in produits) {
@@ -209,7 +211,7 @@ class IHM_CONSULTER {
           try {
             int choice = int.parse(stdin.readLineSync().toString());
             ok = true;
-            Produit produit = await GestinProduit.selectByID(choice);
+            Produit produit = await GestinProduit.selectByID(settings, choice);
             if (produit.estVide()) {
               print("Le produit n'existe pas");
             } else {
@@ -222,7 +224,7 @@ class IHM_CONSULTER {
         }
         print("\n");
       } else if (choix == "3") {
-        List<Produit> produits = await GestinProduit.selectAll();
+        List<Produit> produits = await GestinProduit.selectAll(settings);
         if (!produits.isEmpty) {
           print("\nListe de tout les noms des Produits :");
           for (Produit edit in produits) {

@@ -16,14 +16,14 @@ class BDD {
   }
 
   //Test de la connexion qui renvoie vrai ou faux en fonction de la connexion à la base de donnée
-  static Future<bool> testConnection() async {
+  static Future<bool> testConnection(ConnectionSettings settings) async {
     bool valide = false;
     try {
-      MySqlConnection con = await MySqlConnection.connect(_settings);
+      MySqlConnection con = await MySqlConnection.connect(settings);
       con.close();
       valide = true;
     } catch (e) {
-      print(e.toString());
+      e.toString();
     }
     return valide;
   }
