@@ -49,6 +49,8 @@
       <a href="#le-projet">Le projet</a>
       <ul>
         <li><a href="#les-languages-utilisés">Les languages utilisés</a></li>
+        <li><a href="#les-languages-utilisés">Le diagramme de classe</a></li>
+        <li><a href="#organisation">Organisation</a></li>
       </ul>
     </li>
     <li><a href="#utilisation">Utilisation</a></li>
@@ -85,46 +87,40 @@ Nous avons utulisés les languages suivant pour que le projet soit mené à bien
 
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
-### Nôtre façon de s'organiser
+### Organisation
 
 Pour s'organiser nous avons choisis le logiciel Notion.
 Il nous a permis de s'organiser en se répartion les tâches, voir leurs états et savoir ou nous en étions
-Vous pouvez retrouver nôtre notion ici : https://salty-peripheral-b45.notion.site/d4315c2d750248569048b9ae80dba48e?v=aecc58c0dccc46afbde2c338e2f9f842
+Vous pouvez retrouver nôtre notion <a href="https://salty-peripheral-b45.notion.site/d4315c2d750248569048b9ae80dba48e?v=aecc58c0dccc46afbde2c338e2f9f842">ici</a>
 
+#### Diagramme de classe
+
+Voici nôtre diagramme de classe :
+
+[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
-<!-- GETTING STARTED -->
-## Getting Started
-
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
-* npm
-  ```sh
-  npm install npm@latest -g
-  ```
 
 ### Installation
 
 _Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Cloner le repository
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/Morbleuz/dart_furet.git
    ```
-3. Install NPM packages
+2. Si vous n'avez pas mariaDB
    ```sh
-   npm install
+   apt install mariadb-server
    ```
-4. Enter your API in `config.js`
-   ```js
-   const API_KEY = 'ENTER YOUR API';
+3. Ce mettre dans le répertoire et installer les paquets
+   ```sh
+   dart pub get
    ```
-
+4. Lancer le programme
+   ```sh
+   dart run /bin/main.dart
+   ```
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
@@ -163,4 +159,5 @@ Lien du projet: [https://github.com/your_username/repo_name](https://github.com/
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: terminal.png
+[diagramme]: terminal.png
