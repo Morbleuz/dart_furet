@@ -69,10 +69,10 @@
 Bienvenue sur notre projet aboutit dans un cadre scolaire. Ce projet simule la gestion d'une base de données pour le Furet du Nord, il a donc nécessité la conception et création d'une base de données, la maitrise du language dart et de la programmation orientée objet mais également la gestion d'un projet.
 
 Le projet contient les fonctionnalités suivantes :
-* consulter le contenu de chaque table, ainsi que des requêtes précises
-* Modifier le contenu de chaque table selon certains critère
-* Insérer des données dans chaque table
-* Supprimer des données dans chaque table
+* <strong>Consulter</strong> le contenu de chaque table, ainsi que des requêtes précises
+* <strong>Modifier</strong> le contenu de chaque table selon certains critère
+* <strong>Insérer</strong> des données dans chaque table
+* <strong>Supprimer</strong> des données dans chaque table
 
 Nous avons rajouté un script permettant l'importation et l'exportation d'une base de données.
 
@@ -129,7 +129,8 @@ Suivant les différentes instructions pour l'installation du logiciel :
 <!-- USAGE EXAMPLES -->
 ## Utilisation
 
-L'utilisation de ce logiciel est plutôt simple, vous avez juste à naviguer aux travers des différents menus avec les touches "1", "2", "3" ,etc.
+Tout d'abord il faudra vous connecter à vôtre base de donnée faite sur vôtre ordinateur. Le logiciel vous demandes la base de donnée, le nom du l'utilisateur ainsi que son mot de passe.<br>
+Une fois les informations fournit l'utilisation de ce logiciel est plutôt simple, vous avez juste à naviguer aux travers des différents menus avec les touches "1", "2", "3" ,etc.<br>
 Pour quitter le logiciel revenez sur le menu principal et appuyé sur "Q"
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
