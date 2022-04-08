@@ -160,4 +160,4 @@ Lien du projet: [https://github.com/your_username/repo_name](https://github.com/
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: terminal.png
-[diagramme]: terminal.png
+[diagramme]: diagramme.png
