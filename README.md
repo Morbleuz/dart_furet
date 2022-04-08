@@ -49,10 +49,11 @@
       <a href="#le-projet">Le projet</a>
       <ul>
         <li><a href="#les-languages-utilisés">Les languages utilisés</a></li>
-        <li><a href="#les-languages-utilisés">Le diagramme de classe</a></li>
         <li><a href="#organisation">Organisation</a></li>
+        <li><a href="#diagramme-de-classe">Le diagramme de classe</a></li>
       </ul>
     </li>
+    <li><a href="#installation">Installation</a></li>
     <li><a href="#utilisation">Utilisation</a></li>
     <li><a href="#contact">Contact</a></li>
   </ol>
@@ -79,7 +80,7 @@ Nous avons rajouter un script permettant l'importation et l'exportation d'une ba
 
 ### Les languages utilisés
 
-Nous avons utulisés les languages suivant pour que le projet soit mené à bien :
+Nous avons utilisés les languages suivant pour que le projet soit mené à bien :
 
 * [Dart](https://dart.dev/)
 * [Bash](https://doc.ubuntu-fr.org/bash)
@@ -97,7 +98,7 @@ Vous pouvez retrouver nôtre notion <a href="https://salty-peripheral-b45.notion
 
 Voici nôtre diagramme de classe :
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][diagramme]]
 
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
@@ -119,9 +120,9 @@ Suivant les différentes instructions pour l'installation du logiciel :
    ```
 4. Lancer le programme
    ```sh
-   dart run /bin/main.dart
+   dart run bin/main.dart
    ```
-<p align="right">(<a href="#top">back to top</a>)</p>
+<p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
 
 
@@ -140,7 +141,7 @@ Laude Axel : [![LinkedIn][linkedin-shield]][linkedin-url]
 
 Sobkowiak Jonathan : [![LinkedIn][linkedin-shield]][linkedin-url]
 
-Lien du projet: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Lien du projet: <a href="https://github.com/Morbleuz/dart_furet.git">ici</a>
 
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
