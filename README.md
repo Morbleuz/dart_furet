@@ -28,7 +28,7 @@
   <h3 align="center">Projet Furet du Nord</h3>
 
   <p align="center">
-    Fait par des étudiants en BTS SIO option SLAM de 1ere année
+    Projet réalisé par des étudiants en BTS SIO option SLAM
     <br />
     <a href="https://github.com/Morbleuz/dart_furet/blob/main/README.md"><strong>Explorer la documentation -></strong></a>
     <br />
@@ -66,21 +66,21 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 
-Bienvenue sur nôtre projet aboutie dans un cadre scolaire. Ce projet simule la gestion d'une base de donnée pour le Furet du Nord, il a donc nécessite la conception et création d'une base de donnée, la maitrise du language dart et de la programmation orientée objet mais égalemment la gestion d'un projet.
+Bienvenue sur notre projet aboutit dans un cadre scolaire. Ce projet simule la gestion d'une base de données pour le Furet du Nord, il a donc nécessité la conception et création d'une base de données, la maitrise du language dart et de la programmation orientée objet mais également la gestion d'un projet.
 
 Le projet contient les fonctionnalités suivantes :
-* Consulter le contenu de chaque table, ainsi que des requêtes précises
+* consulter le contenu de chaque table, ainsi que des requêtes précises
 * Modifier le contenu de chaque table selon certains critère
 * Insérer des données dans chaque table
 * Supprimer des données dans chaque table
 
-Nous avons rajouter un script permettant l'importation et l'exportation d'une base de donnée.
+Nous avons rajouté un script permettant l'importation et l'exportation d'une base de données.
 
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
 ### Les languages utilisés
 
-Nous avons utilisés les languages suivant pour que le projet soit mené à bien :
+Nous avons utilisé les languages suivants pour que le projet soit mené à bien :
 
 * [Dart](https://dart.dev/)
 * [Bash](https://doc.ubuntu-fr.org/bash)
@@ -90,9 +90,9 @@ Nous avons utilisés les languages suivant pour que le projet soit mené à bien
 
 ### Organisation
 
-Pour s'organiser nous avons choisis le logiciel Notion.
-Il nous a permis de s'organiser en se répartion les tâches, voir leurs états et savoir ou nous en étions
-Vous pouvez retrouver nôtre notion <a href="https://salty-peripheral-b45.notion.site/d4315c2d750248569048b9ae80dba48e?v=aecc58c0dccc46afbde2c338e2f9f842">ici</a>
+Pour nous'organiser nous avons choisi le logiciel notion.
+Il nous a permis de s'organiser en ses répartion les tâches, voir leur état et savoir où nous en étions
+Vous pouvez retrouver notre notion
 
 #### Diagramme de classe
 
@@ -129,7 +129,8 @@ Suivant les différentes instructions pour l'installation du logiciel :
 <!-- USAGE EXAMPLES -->
 ## Utilisation
 
-L'utilisation de ce logiciel est plutôt simple, vous avez juste à naviguer aux travers des différents menu avec les touches 1,2,3,..  
+L'utilisation de ce logiciel est plutôt simple, vous avez juste à naviguer aux travers des différents menus avec les touches "1", "2", "3" ,etc.
+Pour quitter le logiciel revenez sur le menu principal et appuyé sur "Q"
 <p align="right">(<a href="#top">Revenir en haut</a>)</p>
 
 
