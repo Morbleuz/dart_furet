@@ -103,7 +103,7 @@ Voici nôtre diagramme de classe :
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app. This template doesn't rely on any external dependencies or services._
+Suivant les différentes instructions pour l'installation du logiciel :
 
 1. Cloner le repository
    ```sh
