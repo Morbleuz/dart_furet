@@ -139,7 +139,7 @@ L'utilisation de ce logiciel est plutôt simple, vous avez juste à naviguer aux
 
 Laude Axel : [![LinkedIn][linkedin-shield]][linkedin-url] 
 
-Sobkowiak Jonathan : [![LinkedIn][linkedin-shield]][linkedin-url]
+Sobkowiak Jonathan : [![LinkedIn][linkedin-shield]][linkedin-url2]
 
 Lien du projet: <a href="https://github.com/Morbleuz/dart_furet.git">ici</a>
 
@@ -159,6 +159,8 @@ Lien du projet: <a href="https://github.com/Morbleuz/dart_furet.git">ici</a>
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://www.linkedin.com/in/axel-l-b9620a228/
+[linkedin-url2]: https://www.linkedin.com/in/jonathan-sobkowiak-2b5310228/
+
 [product-screenshot]: terminal.png
 [diagramme]: diagramme.png
